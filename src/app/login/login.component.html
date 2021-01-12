@@ -1,0 +1,7 @@
+<p>login works!</p>
+<p>{{ message }}</p>
+<form (ngSubmit)="loginCheck()">
+    Enter userName : <input type="text" name="t1" [(ngModel)]=login.user_name /> <br />
+    Enter password : <input type="password" name="t2" [(ngModel)]=login.password /> <br />
+    <button type="submit">Login</button> 
+</form>
