@@ -1,0 +1,133 @@
+
+<nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link"><button (click)="fetchListOfFlights()" class="btn btn-primary">Fetch Flights</button></a>
+      </li>
+    </ul>
+</nav>
+  
+<div *ngIf="successMsg" class="pt-5">
+<table class="table pt-5 w-50 mx-auto">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FLIGHT NAME</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let flight of flightList" class="table-primary">
+        <th scope="row"><button class="btn btn-primary" (click)="addScheduleForm(flight)">{{ flight.flightNo }}</button></th>
+        <td>{{ flight.flightName }}</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<div *ngIf="failureMsg" class="alert alert-primary pt-5" role="alert">
+    Sorry! Cannot fetch Flight details!
+</div>
+
+<div *ngIf="scheduleAdded" class="alert alert-primary mt-5" role="alert">
+  Added Schedule!
+</div>
+<div *ngIf="scheduleFailed" class="alert alert-primary pt-5" role="alert">
+  Failed!
+</div>
+<div class="col-md-8 mx-auto pt-5 pb-5" *ngIf="scheduleForm">
+    <form (ngSubmit)="addScheduleToFlight()">
+        <div class="form-group">
+
+            <label for="flightno">Enter Flight No</label>
+            <input  class="form-control" 
+                    id="flightno" 
+                    type="text" 
+                    name="flightNo" 
+                    [(ngModel)]="flight.flightNo"
+                    [readonly]="true"/>
+
+            <label for="flightname">Enter Flight Name</label>
+            <input  class="form-control" 
+                    id="flightname" 
+                    type="text" 
+                    name="flightName" 
+                    [(ngModel)]="flight.flightName"
+                    [readonly]="true"/>
+
+            <label for="fromAirport">Enter Departure Airport</label>
+            <input  class="form-control" 
+                    id="fromAirport" 
+                    type="text" 
+                    name="fromAirport" 
+                    [(ngModel)]="schedule.fromAirport"/>
+            
+            <label for="toAirport">Enter Arrival Airport</label>
+            <input  class="form-control" 
+                    id="toAirport" 
+                    type="text" 
+                    name="toAirport" 
+                    [(ngModel)]="schedule.toAirport"/>
+
+            <label for="departure">Enter Departure date & time</label>
+            <input  class="form-control" 
+                    id="departure" 
+                    type="datetime-local" 
+                    name="departure" 
+                    [(ngModel)]="schedule.departure"/>
+
+            <label for="arrival">Enter Arrival date & time</label>
+            <input  class="form-control" 
+                    id="arrival" 
+                    type="datetime-local" 
+                    name="arrival" 
+                    [(ngModel)]="schedule.arrival"/>
+            
+            <label for="economySeats">Count of Economy seats</label>
+            <input  class="form-control" 
+                    id="economySeats" 
+                    type="number" 
+                    name="economySeats" 
+                    [(ngModel)]="schedule.economySeats"/>
+
+            <label for="bussinessSeats">Count of Business seats</label>
+            <input  class="form-control" 
+                    id="bussinessSeats" 
+                    type="number" 
+                    name="bussinessSeats" 
+                    [(ngModel)]="schedule.bussinessSeats"/>
+
+            <label>Flight Status</label> <br/>
+            <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" [(ngModel)]="schedule.flightStatus" value="ACTIVE">ACTIVE
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" [(ngModel)]="schedule.flightStatus" value="INACTIVE">INACTIVE
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" [(ngModel)]="schedule.flightStatus" value="CANCELLED">CANCELLED
+                </label>
+            </div>
+
+
+            <label for="bSeatPrice">Business seat price</label>
+            <input  class="form-control" 
+                    id="bSeatPrice" 
+                    type="number" 
+                    name="bSeatPrice" 
+                    [(ngModel)]="schedule.bSeatPrice"/>
+
+            <label for="eSeatPrice">Economy seat price</label>
+            <input  class="form-control" 
+                    id="eSeatPrice" 
+                    type="number" 
+                    name="eSeatPrice" 
+                    [(ngModel)]="schedule.eSeatPrice"/>
+        </div>
+        
+        <input type="submit" value="Add Schedule" class="btn btn-primary"/> <br>
+    </form>
+</div>

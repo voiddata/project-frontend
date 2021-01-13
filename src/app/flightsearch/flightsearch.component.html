@@ -1,0 +1,44 @@
+
+<nav class="navbar">
+  <button class="btn btn-primary" (click)="fetchSchedule()">Fetch Schedule</button> 
+</nav>
+
+<div *ngIf="successMsg" class="pt-5">
+  <table class="table pt-5">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FROM AIRPORT</th>
+        <th scope="col">TO AIRPORT</th>
+        <th scope="col">DEPARTURE</th>
+        <th scope="col">ARRIVAL</th>
+        <th scope="col">ECONOMY SEATS</th>
+        <th scope="col">BUSINESS SEATS</th>
+        <th scope="col">FLIGHT STATUS</th>
+        <th scope="col">BUSINESS CLASS PRICE</th>
+        <th scope="col">ECONOMY CLASS PRICE</th>
+        <th scope="col">FLIGHT NO</th>
+        <th scope="col">FLIGHT NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let schedule of scheduleList" class="table-primary">
+        <th scope="row" class="bg-secondary">{{ schedule.id }}</th>
+        <td>{{ schedule.fromAirport }}</td>
+        <td>{{ schedule.toAirport }}</td>
+        <td>{{ schedule.departure }}</td>
+        <td>{{ schedule.arrival }}</td>
+        <td>{{ schedule.economySeats }}</td>
+        <td>{{ schedule.bussinessSeats }}</td>
+        <td>{{ schedule.flightStatus }}</td>
+        <td>{{ schedule.bSeatPrice }}</td>
+        <td>{{ schedule.eSeatPrice }}</td>
+        <td>{{ schedule.flight.flightNo }}</td>
+        <td>{{ schedule.flight.flightName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="failureMsg" class="alert alert-primary pt-5" role="alert">
+  Sorry! Cannot fetch Schedule details!
+</div>

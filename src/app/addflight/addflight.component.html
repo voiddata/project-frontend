@@ -1,0 +1,25 @@
+<div class="container h-100">
+    <div class="row w-50 mx-auto pt-5">
+        <div class="col-md-12">
+            <form (ngSubmit)="addFlight()">
+                <div class="form-group">
+                    <label for="flightname">Enter Flight Name</label>
+                    <input  class="form-control" 
+                            id="flightname" 
+                            placeholder="Enter flight name here" 
+                            type="text" 
+                            name="flightName" 
+                            [(ngModel)]="flight.flightName"/>
+                </div>
+                
+                <input type="submit" value="Add Flight" class="btn btn-primary"/> <br>
+                <div *ngIf="successMsg" class="alert alert-primary mt-5" role="alert">
+                    Flight data inserted!
+                </div>
+                <div *ngIf="failureMsg" class="alert alert-primary pt-5" role="alert">
+                    Sorry! Flight data not inserted!
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
