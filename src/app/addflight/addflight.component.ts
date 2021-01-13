@@ -2,7 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FlightFetch } from '../appdto/FlightFetch';
 import { Flight } from '../appmodel/Flight';
-import { FlightService } from '../flight.service';
+import { FlightService } from '../services/flight.service';
 
 @Component({
   selector: 'app-addflight',

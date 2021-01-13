@@ -1,5 +1,5 @@
 export class Admin {
     id: number;
-    name: string;
+    userName: string;
     password: string;
-  }
+}

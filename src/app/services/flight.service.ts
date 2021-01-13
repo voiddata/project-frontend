@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FlightFetch } from './appdto/FlightFetch';
-import { Flight } from './appmodel/Flight';
+import { FlightFetch } from '../appdto/FlightFetch';
+import { Flight } from '../appmodel/Flight';
 
 @Injectable({
   providedIn: 'root'

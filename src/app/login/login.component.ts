@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../appdto/Login';
 
-import { UserService } from '../user.service';
-import { AdminService } from '../admin.service';
+import { UserService } from '../services/user.service';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-login',

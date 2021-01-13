@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ScheduleFetch } from './appdto/ScheduleFetch';
+import { ScheduleFetch } from '../appdto/ScheduleFetch';
 
 @Injectable({
   providedIn: 'root'

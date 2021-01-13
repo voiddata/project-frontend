@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScheduleFetch } from '../appdto/ScheduleFetch';
 import { Flight } from '../appmodel/Flight';
 import { Schedule } from '../appmodel/Schedule';
-import { ScheduleService } from '../schedule.service';
+import { ScheduleService } from '../services/schedule.service';
 
 @Component({
   selector: 'app-flightsearch',

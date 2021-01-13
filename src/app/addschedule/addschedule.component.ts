@@ -3,8 +3,8 @@ import { FlightFetch } from '../appdto/FlightFetch';
 import { ScheduleFetch } from '../appdto/ScheduleFetch';
 import { Flight } from '../appmodel/Flight';
 import { Schedule } from '../appmodel/Schedule';
-import { FlightService } from '../flight.service';
-import { ScheduleService } from '../schedule.service';
+import { FlightService } from '../services/flight.service';
+import { ScheduleService } from '../services/schedule.service';
 
 @Component({
   selector: 'app-addschedule',
