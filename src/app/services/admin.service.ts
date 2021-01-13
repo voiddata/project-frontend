@@ -11,9 +11,8 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   login(login: Login) : Observable<any> {
-    let url = "http://localhost:8085/login";
-   return this.http.post(url, login); 
-
+    let url = "http://localhost:8080/adminLogin";
+    return this.http.post(url, login); 
   }
 
 

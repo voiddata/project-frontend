@@ -1,9 +1,32 @@
 
-<p>login works!</p>
-<p>{{ message }}</p>
-<form (ngSubmit)="loginCheck()">
-    Enter userName : <input type="text" name="t1" [(ngModel)]=login.userName /> <br />
-    Enter password : <input type="password" name="t2" [(ngModel)]=login.password /> <br />
-    <button type="submit">Login</button> 
-</form>
-
+<div class="container h-100">
+    <div class="row w-50 mx-auto pt-5">
+        <div class="col-md-12">
+            <form (ngSubmit)="loginCheck()">
+                <div class="form-group">
+                    <label for="userName">USER NAME</label>
+                    <input  class="form-control" 
+                            id="userName" 
+                            type="text" 
+                            name="userName" 
+                            [(ngModel)]="login.userName"
+                            autocomplete="current-password"/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input  class="form-control" 
+                            id="password" 
+                            type="password" 
+                            name="password" 
+                            [(ngModel)]="login.password"
+                            autocomplete="current-password"/>
+                </div>
+                <input type="submit" value="Login" class="btn btn-primary"/> <br>
+                <div *ngIf="failureMsg" class="alert alert-danger mt-5" role="alert">
+                    Invalid Login Details!
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

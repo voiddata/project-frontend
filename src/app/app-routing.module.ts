@@ -6,13 +6,17 @@ import { FlightsearchComponent } from './flightsearch/flightsearch.component';
 
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 const routes: Routes = [
   { path: 'addFlight', component: AddflightComponent },
   { path: 'fetchSchedule', component: FlightsearchComponent },
   { path: 'addSchedule', component: AddscheduleComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'userDashboard', component: DashboardComponent },
+  { path: 'userLogin', component: LoginComponent },
+  { path: 'adminLogin', component: AdminloginComponent },
+  { path: 'adminDashboard', component: AdmindashboardComponent }
 ];
 
 @NgModule({

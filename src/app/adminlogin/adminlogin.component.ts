@@ -11,29 +11,28 @@ import { Login } from '../appdto/Login';
 export class AdminloginComponent implements OnInit {
   
   login: Login = new Login();
-  message: string;
+  failureMsg: boolean;
   
   constructor(private adminService: AdminService, private router: Router) { }
 
 
   ngOnInit() {
-    
+    this.failureMsg = false;
   }
   
   loginCheck() {
-    console.log(this.login);
     this.adminService.login(this.login).subscribe(response => {
-      alert(JSON.stringify(response));
-      console.log(response);
-      if(response.status == 'SUCCESS') {
-        let Id = response.Id;
+      if(response.status === 'SUCCESS') {
+        let id = response.id;
         let userName = response.userName;
-        sessionStorage.setItem('Id', String(Id));
+        sessionStorage.setItem('id', String(id));
         sessionStorage.setItem('userName', userName);
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['adminDashboard']);
       }
-      else
-        this.message = response.message;
+      else if(response.status === 'FAILED')
+      {
+        this.failureMsg = true;
+      }
     })
   }
 

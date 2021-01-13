@@ -1,4 +1,4 @@
-
+<!--
     <form #userForm="ngForm" (ngSubmit)="logincheck()">
         <div class="form-group">
             <label>user name</label>
@@ -14,5 +14,35 @@
     </form>
     <div id="id" class="text-danger"></div>
 
-
+-->
     
+
+<div class="container h-100">
+    <div class="row w-50 mx-auto pt-5">
+        <div class="col-md-12">
+            <form (ngSubmit)="loginCheck()">
+                <div class="form-group">
+                    <label for="userName">USER NAME</label>
+                    <input  class="form-control" 
+                            id="userName" 
+                            type="text" 
+                            name="userName" 
+                            [(ngModel)]="login.userName"/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input  class="form-control" 
+                            id="password" 
+                            type="password" 
+                            name="password" 
+                            [(ngModel)]="login.password"/>
+                </div>
+                <input type="submit" value="Login" class="btn btn-primary"/> <br>
+                <div *ngIf="failureMsg" class="alert alert-primary pt-5" role="alert">
+                    Invalid Login Details!
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
