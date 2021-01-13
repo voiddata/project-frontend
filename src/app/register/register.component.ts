@@ -10,27 +10,26 @@ import { User } from '../appmodel/user';
 })
 export class RegisterComponent implements OnInit {
 
-   user:User=new User();
-   message:string="Successfully registered";
+  user: User = new User();
+  
+  successMsg: boolean = false;
+  failureMsg: boolean = false;
+
   constructor(private registerService:RegisterService) { }
 
   ngOnInit() {
-  }
-  OnSubmit() {
-    alert('Form Submitted succesfully!!!');
+  
   }
 
 
   register()
-{
- alert(JSON.stringify(this.user));
-  this.registerService.register( this.user).subscribe(response=>{
-      console.log(response);
-     
+  {
+    this.registerService.register(this.user).subscribe(response => {
+      if(response.status === 'SUCCESS') {
+        this.successMsg = true;
+      } else if(response.status === 'FAILED') {
+        this.failureMsg = true;
+      }
     });
-  
-}
-
-
-
+  }
 }

@@ -11,7 +11,7 @@ export class RegisterService {
   constructor(private http:HttpClient) { }
    
   register(user:User):Observable<any>{
-    let url="http://localhost:8080/register";
+    let url="http://localhost:8080/userRegister";
     return this.http.post(url,user);
   }
 

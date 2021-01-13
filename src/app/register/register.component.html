@@ -1,7 +1,4 @@
-<html>
-<head>user register</head>
-<p>User Registeration Form</p>
-<body>
+<!--
 <div>
 <form #regForm="ngForm" (ngSubmit)="register(regForm)  && onSubmit()" >
     
@@ -36,6 +33,71 @@
     <button type="submit" value="submit" name="submit" [disabled]="!regForm.valid" >Register</button> 
    
 </form>
+</div>-->
+
+<div *ngIf="successMsg" class="alert alert-primary mt-5" role="alert">
+    Registered!
 </div>
-</body>
-</html>
+<div *ngIf="failureMsg" class="alert alert-danger pt-5" role="alert">
+    Failed!
+</div>
+
+<div class="col-md-8 mx-auto mt-5 mb-5">
+    <form (ngSubmit)="register()">
+        <div class="form-group">
+
+            <label for="username">Enter User Name</label>
+            <input  class="form-control" 
+                    id="username" 
+                    type="text" 
+                    name="username" 
+                    [(ngModel)]="user.userName"/>
+
+            <label for="firstname">Enter First Name</label>
+            <input  class="form-control" 
+                    id="firstname" 
+                    type="text" 
+                    name="firstname" 
+                    [(ngModel)]="user.firstName"/>
+
+            <label for="lastname">Enter Last Name</label>
+            <input  class="form-control" 
+                    id="lastname" 
+                    type="text" 
+                    name="lastname" 
+                    [(ngModel)]="user.lastName"/>
+            
+            <label for="emailid">Enter Email Id</label>
+            <input  class="form-control" 
+                    id="emailid" 
+                    type="text" 
+                    name="emailid" 
+                    [(ngModel)]="user.emailId"
+                    autocomplete="current-password"/>
+
+            <label for="password">Enter Password</label>
+            <input  class="form-control" 
+                    id="password" 
+                    type="password" 
+                    name="password" 
+                    [(ngModel)]="user.password"
+                    autocomplete="current-password"/>
+
+            <label for="dob">Enter Date of Birth</label>
+            <input  class="form-control" 
+                    id="dob" 
+                    type="date" 
+                    name="dob" 
+                    [(ngModel)]="user.dateOfBirth"/>
+            
+            <label for="contact">Enter Contact Number</label>
+            <input  class="form-control" 
+                    id="contact" 
+                    type="number" 
+                    name="contact" 
+                    [(ngModel)]="user.mobileNo"/>
+            <br><br>
+            <input type="submit" value="REGISTER" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>

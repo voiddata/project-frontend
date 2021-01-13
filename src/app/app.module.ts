@@ -13,6 +13,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
     LoginComponent,
     DashboardComponent,
     AdminloginComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    RegisterComponent
   ],
 
   imports: [

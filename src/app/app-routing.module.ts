@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: 'addFlight', component: AddflightComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'userDashboard', component: DashboardComponent },
   { path: 'userLogin', component: LoginComponent },
   { path: 'adminLogin', component: AdminloginComponent },
-  { path: 'adminDashboard', component: AdmindashboardComponent }
+  { path: 'adminDashboard', component: AdmindashboardComponent },
+  { path: 'userRegister', component: RegisterComponent }
 ];
 
 @NgModule({

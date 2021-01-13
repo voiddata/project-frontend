@@ -12,25 +12,25 @@ import { AdminService } from '../services/admin.service';
 })
 
 export class LoginComponent implements OnInit {
-  login:Login=new Login();
+  login:Login = new Login();
+
   constructor(private userService: UserService, private router: Router) { }
-  message: string;
+  failureMsg: boolean = false;
 
   ngOnInit() {
   }
-  logincheck(){
-    //alert(JSON.stringify(this.login));
-    this.userService.login(this.login).subscribe(response =>{
-      console.log(response);
-     if(response.status=='SUCCESS'){
-       let userId=response.userId;
-       let userName=response.userName;
-       sessionStorage.setItem('userId',String(userId));
-       sessionStorage.setItem('userName',userName);
-       this.router.navigate(['dashboard']);
-     }else
-      // this.message=response.message;
-      document.getElementById("id").innerHTML=this.message=response.message;
+
+  loginCheck() {
+    this.userService.login(this.login).subscribe(response => {
+      if(response.status === 'SUCCESS') {
+        let id = response.id;
+        let userName = response.userName;
+        sessionStorage.setItem('id',String(id));
+        sessionStorage.setItem('userName',userName);
+        this.router.navigate(['userDashboard']);
+      } else if(response.status === 'FAILED') {
+        this.failureMsg = true;
+      }
      })
     }
 }

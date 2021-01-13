@@ -12,9 +12,12 @@ export class AdmindashboardComponent implements OnInit {
   addSchedule: boolean = false;
   fetchSchedule: boolean = false;
 
+  user: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.user = sessionStorage.getItem('userName');
   }
   
   addFlightFn() {
