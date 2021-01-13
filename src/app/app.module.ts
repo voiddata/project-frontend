@@ -1,28 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+
 import { AddflightComponent } from './addflight/addflight.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlightsearchComponent } from './flightsearch/flightsearch.component';
 import { AddscheduleComponent } from './addschedule/addschedule.component';
+import { LoginComponent } from './login/login.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddflightComponent,
     FlightsearchComponent,
-    AddscheduleComponent
+    AddscheduleComponent,
+    LoginComponent,
+    DashboardComponent,
+    AdminloginComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+
+providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

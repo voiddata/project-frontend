@@ -1,0 +1,9 @@
+.is-invalid{
+    color:red;
+}
+.d-none{
+    display: none;
+}
+.text-danger{
+    color:red;
+}

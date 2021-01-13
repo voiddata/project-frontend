@@ -1,0 +1,41 @@
+<html>
+<head>user register</head>
+<p>User Registeration Form</p>
+<body>
+<div>
+<form #regForm="ngForm" (ngSubmit)="register(regForm)  && onSubmit()" >
+    
+    <div class="form-group">
+    Enter Username: <input required type="text" name="name" class="form-control" [(ngModel)]=user.userName  #name="ngModel" required /> <br/>
+    <span class="text-danger"
+     *ngIf="(name.touched || regForm.submitted) && name.errors?.required">
+        Name is required
+    </span>
+</div>
+    Enter FirstName:<input type="text" name="t2" required class="form-control"  [(ngModel)]=user.firstName /> <br/>
+    <div class="form-group">
+    Enter LastName:<input type="text" name="t3" required class="form-control"  [(ngModel)]=user.lastName /> <br/>
+    </div>
+    <div class="form-group">
+    Enter your email address : <input type="email" name="t4"class="form-control" email required [(ngModel)]=user.emailId/> <br/>
+    </div>
+
+    <div class="form-group">
+    Enter your password : <input type="password" required minlength="8" name="password" class="form-control" [(ngModel)]=user.password #password="ngModel" required />
+    <span class="text-danger"
+    *ngIf="(password.touched || regForm.submitted) && password.errors?.required">
+       Password required atleast 8 character
+   </span>  
+</div>
+    <div class="form-group">
+    Enter your Date of birth : <input type="date" name="t6"required class="form-control"  [(ngModel)]=user.dateOfBirth /> <br/>
+    </div>
+    <div class="form-group">
+    Enter your Mobile No:<input type="number" name="t7" required class="form-control" [(ngModel)]=user.mobileNo/><br/>
+    </div>
+    <button type="submit" value="submit" name="submit" [disabled]="!regForm.valid" >Register</button> 
+   
+</form>
+</div>
+</body>
+</html>
