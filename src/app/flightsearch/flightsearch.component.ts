@@ -14,11 +14,9 @@ export class FlightsearchComponent implements OnInit {
   scheduleFetch: ScheduleFetch = new ScheduleFetch();
 
   scheduleList: Array<Schedule>;
-  flight: Flight;
 
   successMsg: boolean;
   failureMsg: boolean;
-  show:boolean = false;
 
   constructor(private scheduleService: ScheduleService) { }
 
@@ -31,7 +29,7 @@ export class FlightsearchComponent implements OnInit {
       this.scheduleList = response.schedule;
       if(response.status === 'SUCCESS')
         this.successMsg = true;
-      else if(response.status === 'FAILURE')
+      else if(response.status === 'FAILED')
         this.failureMsg = true;
       console.log(response);
     });

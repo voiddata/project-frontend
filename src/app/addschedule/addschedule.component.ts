@@ -35,6 +35,8 @@ export class AddscheduleComponent implements OnInit {
 
   fetchListOfFlights() {
     this.scheduleForm = false;
+    this.scheduleAdded = false;
+    this.scheduleFailed = false;
     this.flightService.fetchFlightList(this.flightFetch).subscribe(response => {
       console.log(response.status);
       this.flightList = response.list;

@@ -11,5 +11,5 @@ export class Schedule {
     flightStatus: string;
     bSeatPrice: number;
     eSeatPrice: number;
-    flight: Flight;
+    flight: Flight = new Flight();
 }
