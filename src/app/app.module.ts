@@ -14,6 +14,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { RegisterComponent } from './register/register.component';
+import { UserflightsearchComponent } from './userflightsearch/userflightsearch.component';
+import { SeatselectionComponent } from './seatselection/seatselection.component';
+import { PassengerformComponent } from './passengerform/passengerform.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { RegisterComponent } from './register/register.component';
     DashboardComponent,
     AdminloginComponent,
     AdmindashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserflightsearchComponent,
+    SeatselectionComponent,
+    PassengerformComponent
   ],
 
   imports: [

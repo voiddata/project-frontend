@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>ECONOMY SEATS</h1>
+    <ol style="list-style-type: none;" class="list-group list-group-horizontal">
+        <li *ngFor="let s of economyArray" class="list-group-item">
+            <input 
+                [disabled]="bookedSeats.indexOf(s) > -1" 
+                (change)="checkBoxChange($event)"
+                type="checkbox" 
+                name="{{s}}" 
+                id="{{s}}" 
+                style="width: 25px; height: 25px;"/>
+            <label for="{{s}}" class="ml-3"><h5>{{ s }}</h5></label>
+        </li>
+    </ol>
+        
+
+    <h1>BUSINESS SEATS</h1>
+    <ol style="list-style-type: none;" class="list-group list-group-horizontal">
+        <li *ngFor="let s of businessArray" class="list-group-item">
+            <input 
+                [disabled]="bookedSeats.indexOf(s) > -1" 
+                (change)="checkBoxChange($event)"
+                type="checkbox" 
+                name="{{s}}" 
+                id="{{s}}" 
+                style="width: 25px; height: 25px;"/>
+            <label for="{{s}}" class="ml-3"><h5>{{ s }}</h5></label>
+        </li>
+    </ol>
+</div>

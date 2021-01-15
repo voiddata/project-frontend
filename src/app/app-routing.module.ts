@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { RegisterComponent } from './register/register.component';
+import { SeatselectionComponent } from './seatselection/seatselection.component';
+import { PassengerformComponent } from './passengerform/passengerform.component';
 
 const routes: Routes = [
   { path: 'addFlight', component: AddflightComponent },
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'userLogin', component: LoginComponent },
   { path: 'adminLogin', component: AdminloginComponent },
   { path: 'adminDashboard', component: AdmindashboardComponent },
-  { path: 'userRegister', component: RegisterComponent }
+  { path: 'userRegister', component: RegisterComponent },
+  { path: 'seatSelection', component: SeatselectionComponent },
+  { path: 'passengerForm', component: PassengerformComponent }
 ];
 
 @NgModule({

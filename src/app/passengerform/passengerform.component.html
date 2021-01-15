@@ -1,0 +1,46 @@
+<div class="col-md-8 mx-auto mt-5 mb-5">
+    <form (ngSubmit)="register()">
+        <div class="form-group" *ngFor="let passenger of passengerList">
+            <input  class="form-control" 
+                    id="firstname" 
+                    type="text" 
+                    placeholder="Enter First Name"
+                    name="firstname" 
+                    [(ngModel)]=passenger.firstName/> <br>
+
+            <input  class="form-control" 
+                    id="lastname" 
+                    type="text" 
+                    placeholder="Enter Last Name"
+                    name="lastname" 
+                    [(ngModel)]="passenger.lastName"/> <br>
+
+            <input  class="form-control" 
+                    id="age" 
+                    type="number" 
+                    placeholder="Enter age"
+                    name="age" 
+                    [(ngModel)]="passenger.age"/>
+            <br>
+            
+            <label for="optradio">TYPE OF PASSENGER</label>
+            <div class="form-check">
+                <label class="form-check-label">
+                <input type="radio" class="form-check-input" id="optradio" [(ngModel)]="passenger.typeOfPassenger" value="ADULT">ADULT
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                <input type="radio" class="form-check-input" id="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="CHILD">CHILD
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                <input type="radio" class="form-check-input" id="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="INFANT">INFANT
+                </label>
+            </div>
+            <br><br>
+        </div>
+        <input type="submit" value="REGISTER" class="btn btn-primary"/>
+    </form>
+</div>

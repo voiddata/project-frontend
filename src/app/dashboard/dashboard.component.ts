@@ -9,10 +9,15 @@ export class DashboardComponent implements OnInit {
 
   userName: string;
 
+  flightSearchForm: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
     this.userName = sessionStorage.getItem('userName');
   }
 
+  searchFlightForm() {
+    this.flightSearchForm = true;
+  }
 }
