@@ -1,0 +1,51 @@
+<p>loghistory works!</p>
+
+<form #userForm="ngForm" (ngSubmit)="logcheck()">
+    <div class="form-group">
+        <label>User Id</label>
+        <input type="number" required class="form-control" [class.is-invalid]="userid.invalid && userid.touched" #userid="ngModel" [(ngModel)]=id name="t1"><br>
+        <small class="text-danger" [class.d-none]="userid.valid || userid.untouched">User Id is required</small><br>
+    </div>
+    <button type="submit" [disabled]="userForm.form.invalid">log</button>
+</form>
+
+<div *ngIf="successMsg" class="pt-5">
+    <table class="table pt-5">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">PNR</th>
+          <th scope="col">DATE OF BOOKING</th>
+          <th scope="col">From Airport</th>
+          <th scope="col">To Airport</th>
+          <th scope="col">Arrival Time</th>
+          <th scope="col">Departure Time</th>
+          <th scope="col">PASSENGERS</th>
+          <th scope="col">PNR RETURN</th>
+          <th scope="col">PRICE</th>
+          <th scope="col">Flight Name</th>
+          <th scope="col">Passenger Name</th>
+          <th scope="col">Seat Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings" class="table-primary">
+          <th scope="row" class="bg-secondary">{{ booking.pnr }}</th>
+          <td>{{ booking.dateOfBooking }}</td>
+          <td>{{ booking.fromAirport }}</td>
+          <td>{{ booking.toAirport }}</td>
+          <td>{{ booking.arrival }}</td>
+          <td>{{ booking.departure }}</td>
+          <td>{{ booking.passengers }}</td>
+          <td>{{ booking.pnrReturn }}</td>
+          <td>{{ booking.price }}</td>
+          <td>{{ booking.flight.flightName }}</td>
+          <td>{{ booking.passenger.firstName }}</td>
+          <td>{{ booking.log.status }}</td>
+          <td class="align-left" *ngFor="let p of booking.passenger">{{p.firstName}}&nbsp;&nbsp;{{ p.lastName}}</td>
+          <td class="align-left" *ngFor="let p of booking.passenger">{{p.seatNo}}</td>
+          <td class="align-left" *ngFor="let l of booking.log">{{l.status}}</td>
+          <td class="align-left" *ngFor="let l of booking.log">{{l.logTime}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
