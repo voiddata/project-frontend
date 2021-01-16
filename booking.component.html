@@ -1,0 +1,54 @@
+
+
+<form #userForm="ngForm" (ngSubmit)="bookingcheck()">
+    <div class="form-group">
+        <label>User Id</label>
+        <input type="number" required class="form-control" [class.is-invalid]="userid.invalid && userid.touched" #userid="ngModel" [(ngModel)]=booking.user.id name="t1"><br>
+        <small class="text-danger" [class.d-none]="userid.valid || userid.untouched">Userid is required</small><br>
+    </div>
+    <!--<div class="form-group">
+        <label>Date Of Booking</label>
+        <input type="datetime-local". class="form-control" required [class.is-invalid]="date.invalid && date.touched" #date="ngModel" [(ngModel)]=booking.dateOfBooking name="t2"><br>
+        <small class="text-danger" [class.d-none]="date.valid || date.untouched">date is required</small>
+    </div><br>-->
+
+    <div class="form-group">
+        <label>No of Passengers</label>
+        <input type="number" class="form-control" required [class.is-invalid]="passengers.invalid && passengers.touched" #passengers="ngModel" [(ngModel)]=booking.passengers name="t3"><br>
+        <small class="text-danger" [class.d-none]="passengers.valid || passengers.untouched">passengers is required</small>
+    </div><br>
+
+    <div class="form-group">
+        <label>PNR Return</label>
+        <input type="number" class="form-control" required [class.is-invalid]="pnrreturn.invalid && pnrreturn.touched" #pnrreturn="ngModel" [(ngModel)]=booking.pnrReturn name="t4"><br>
+        <small class="text-danger" [class.d-none]="pnrreturn.valid || pnrreturn.untouched">pnr return is required</small>
+    </div><br>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" class="form-control" required [class.is-invalid]="price.invalid && price.touched" #price="ngModel" [(ngModel)]=booking.price name="t5"><br>
+        <small class="text-danger" [class.d-none]="price.valid || price.untouched">price is required</small>
+    </div><br>
+
+    <div class="form-group">
+        <label>Flight No</label>
+        <input type="number" class="form-control" required [class.is-invalid]="flightNo.invalid && flightNo.touched" #flightNo="ngModel" [(ngModel)]=booking.flight.flightNo name="t6"><br>
+        <small class="text-danger" [class.d-none]="flightNo.valid || flightNo.untouched">flightNo is required</small>
+    </div><br>
+
+    <div class="form-group">
+        <label>From Airport</label>
+        <input type="text" class="form-control" required [class.is-invalid]="fromAirport.invalid && fromAirport.touched" #fromAirport="ngModel" [(ngModel)]=booking.fromAirport name="t7"><br>
+        <small class="text-danger" [class.d-none]="fromAirport.valid || fromAirport.untouched">airport is required</small>
+    </div><br>
+
+    <div class="form-group">
+        <label>To Airport</label>
+        <input type="text" class="form-control" required [class.is-invalid]="toAirport.invalid && toAirport.touched" #toAirport="ngModel" [(ngModel)]=booking.toAirport name="t8"><br>
+        <small class="text-danger" [class.d-none]="toAirport.valid || toAirport.untouched">Airport is required</small>
+    </div><br>
+    
+
+    <button type="submit" [disabled]="userForm.form.invalid">Booking</button>
+</form>
+<div id="id" class="text-danger"></div>
