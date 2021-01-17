@@ -15,21 +15,16 @@ export class FlightsearchComponent implements OnInit {
 
   scheduleList: Array<Schedule>;
 
-  successMsg: boolean;
   failureMsg: boolean;
 
   constructor(private scheduleService: ScheduleService) { }
 
   ngOnInit() {
-  }
 
-  fetchSchedule() {
     this.scheduleService.fetchScheduleList(this.scheduleFetch).subscribe(response => {
       console.log(response.status);
       this.scheduleList = response.schedule;
-      if(response.status === 'SUCCESS')
-        this.successMsg = true;
-      else if(response.status === 'FAILED')
+      if(response.status === 'FAILED')
         this.failureMsg = true;
       console.log(response);
     });

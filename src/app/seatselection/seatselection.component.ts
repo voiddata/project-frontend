@@ -20,6 +20,11 @@ export class SeatselectionComponent implements OnInit {
   flight: Flight = JSON.parse(sessionStorage.getItem('flight'));
   flightSearch: FlightSearch = JSON.parse(sessionStorage.getItem('flightSearch'));
 
+  eSeatChunks: number[][] = new Array<Array<number>>();
+  bSeatChunks: number[][] = new Array<Array<number>>();
+  eSeatDivision: number;
+  bSeatDivision: number;
+
   economySeats: number = this.schedule.economySeats;
   businessSeats: number = this.schedule.bussinessSeats;
 
@@ -41,6 +46,7 @@ export class SeatselectionComponent implements OnInit {
 
   ngOnInit() {
 
+
     while (this.i <= this.economySeats) {
       this.economyArray.push(this.i);
       this.i++;
@@ -53,12 +59,27 @@ export class SeatselectionComponent implements OnInit {
       this.i++;
     }
 
+    
+    this.eSeatDivision = this.economySeats / 10;
+    this.bSeatDivision = this.businessSeats / 10;
+    
+    var i,j,chunk = 10,index;
+    for (i=0,j=this.economyArray.length,index=0; i<j && index < this.eSeatDivision; i+=chunk,index++) {
+      this.eSeatChunks[index] = this.economyArray.slice(i,i+chunk);
+    }
+    
+    for (i=0,j=this.businessArray.length,index=0; i<j && index < this.bSeatDivision; i+=chunk,index++) {
+      this.bSeatChunks[index] = this.businessArray.slice(i,i+chunk);
+    }
+
     this.seatFetch.flight = this.flight;
     this.seatFetch.schedule = this.schedule;
     this.bookingService.fetchBookedSeats(this.seatFetch).subscribe(response => {
       this.bookedSeats = response.bookedSeats;
     });
     this.passengerCnt = this.flightSearch.noOfPassengers;
+
+
   }
 
   checkBoxChange(event: any) {
@@ -66,9 +87,17 @@ export class SeatselectionComponent implements OnInit {
     //console.log(event);
     //console.log(event.target.id);
     
-    if(event.target.checked === true && this.j != this.passengerCnt) { 
-      this.selectedSeats.push(event.target.id);
+    if(event.target.checked === true) {
       this.j++;
+      if(this.j <= this.passengerCnt) { 
+        this.selectedSeats.push(event.target.id);
+      }
+
+      if(this.j > this.passengerCnt) {
+        alert("Already selected required seats! Unselect to select another seat");
+        event.target.checked = false;
+        this.j--;
+      }
     } else if(event.target.checked === false && this.j > 0) {
       const ind = this.selectedSeats.indexOf(event.target.id);
       if (ind > -1) {
@@ -76,14 +105,11 @@ export class SeatselectionComponent implements OnInit {
       }
       this.j--;
     } 
-    
-    if(this.j == this.passengerCnt) {
-      this.maxCnt = true;
-      sessionStorage.setItem('selectedSeats', JSON.stringify(this.selectedSeats));
-      this.router.navigate(['passengerForm']);
-    }
-    
+  }
 
+  nextComp() {
+    sessionStorage.setItem('selectedSeats', JSON.stringify(this.selectedSeats));
+    this.router.navigate(['userDashboard/passengerForm']);
   }
   
 

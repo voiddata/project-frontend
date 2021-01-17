@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admindashboard',
@@ -7,34 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmindashboardComponent implements OnInit {
 
-
-  addFlight: boolean = false;
-  addSchedule: boolean = false;
-  fetchSchedule: boolean = false;
-
   user: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.user = sessionStorage.getItem('userName');
   }
   
-  addFlightFn() {
-    this.addFlight = true;
-    this.addSchedule = false;
-    this.fetchSchedule = false;
-  }
+  // addFlightFn() {
+  //   this.router.navigate(['addFlight']);
+  // }
 
-  fetchScheduleFn() {
-    this.addFlight = false;
-    this.addSchedule = false;
-    this.fetchSchedule = true;
-  }
+  // fetchScheduleFn() {
+  //   this.router.navigate(['fetchSchedule']);
+  // }
 
-  addScheduleFn() {
-    this.addFlight = false;
-    this.addSchedule = true;
-    this.fetchSchedule = false;
-  }
+  // addScheduleFn() {
+  //   this.router.navigate(['addSchedule']);
+  // }
 }

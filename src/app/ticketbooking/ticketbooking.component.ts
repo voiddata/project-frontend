@@ -18,6 +18,7 @@ export class TicketbookingComponent implements OnInit {
   passengerList: Array<Passenger> = JSON.parse(sessionStorage.getItem('passengerList'));
   schedule: Schedule = JSON.parse(sessionStorage.getItem('schedule'));
   userId: number = JSON.parse(sessionStorage.getItem('id'));
+  userName: string = sessionStorage.getItem('userName');
 
   sMsg: boolean = false;
   fMsg: boolean = false;
@@ -41,7 +42,7 @@ export class TicketbookingComponent implements OnInit {
 
   bookTicketFn() {
     sessionStorage.setItem('price',JSON.stringify(this.price));
-    this.router.navigate(['selectBank']);
+    this.router.navigate(['userDashboard/selectBank']);
 
   }
 

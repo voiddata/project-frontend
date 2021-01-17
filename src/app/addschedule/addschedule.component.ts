@@ -31,9 +31,7 @@ export class AddscheduleComponent implements OnInit {
   flight: Flight = new Flight();
 
   ngOnInit() {
-  }
 
-  fetchListOfFlights() {
     this.scheduleForm = false;
     this.scheduleAdded = false;
     this.scheduleFailed = false;

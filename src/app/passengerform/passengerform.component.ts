@@ -51,7 +51,7 @@ export class PassengerformComponent implements OnInit {
 
 
     sessionStorage.setItem('passengerList', JSON.stringify(this.passengerList));
-    this.router.navigate(['ticketBooking']);
+    this.router.navigate(['userDashboard/ticketBooking']);
   }
 
 }

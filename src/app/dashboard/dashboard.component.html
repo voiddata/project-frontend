@@ -1,4 +1,4 @@
-<div class="container h-100 w-100 pt-5">
+<!-- <div class="container h-100 w-100 pt-5">
     <nav class="navbar navbar-expand-sm bg-dark">
         <ul class="navbar-nav">
           <li class="nav-item ml-3">
@@ -14,4 +14,42 @@
     </nav>
     <p class="display-4">Hi, {{ userName }}</p>
 </div>
-<app-userflightsearch *ngIf="flightSearchForm"></app-userflightsearch>
+ -->
+
+
+
+<div class="row w-100 h-100">
+  <div class="col col-sm-2 h-100">
+    <nav class="navbar navbar-right bg-dark h-100">
+      <ul class="navbar-nav h-100">
+        <li class="nav-item mt-2">
+          <a routerLink="userFlightSearch"><button class="btn btn-outline-primary w-100">SEARCH FLIGHT</button></a>
+        </li>
+        <li class="nav-item mt-2">
+          <a routerLink="bookingHistory"><button class="btn btn-outline-primary w-100">BOOKING HISTORY</button></a>
+        </li>
+        <li class="nav-item mt-2">
+          <a routerLink="cancelBooking"><button class="btn btn-outline-primary w-100">CANCEL BOOKING</button></a>
+        </li>
+        <li class="nav-item mt-2">
+          <a routerLink="addBankAccount"><button class="btn btn-outline-primary w-100">ADD BANK ACCOUNT</button></a>
+        </li>
+        <li class="nav-item mt-2">
+          <a routerLink="filterByFlightName"><button class="btn btn-outline-primary w-100">FILTER BY FLIGHT NAME</button></a>
+        </li>
+        <li class="nav-item mt-2">
+          <a routerLink="filterByAirport"><button class="btn btn-outline-primary w-100">FILTER BY AIRPORT</button></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col col-sm-10 h-100">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+
+

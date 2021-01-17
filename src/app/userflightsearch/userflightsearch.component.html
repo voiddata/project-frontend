@@ -4,20 +4,21 @@
         <div class="col-md-12">
             <form (ngSubmit)="fetchFlights()">
                 <div class="form-group">
-                    <label for="fromAirport">DEPARTURE AIRPORT</label>
+                    
                     <input  class="form-control" 
                             id="fromAirport" 
                             type="text" 
                             name="fromAirport" 
+                            placeholder="Enter departure airport"
                             [(ngModel)]="flightSearch.fromAirport"/>
                 </div>
                 
                 <div class="form-group">
-                    <label for="toAirport">ARRIVAL AIRPORT</label>
                     <input  class="form-control" 
                             id="toAirport" 
                             type="text" 
                             name="toAirport" 
+                            placeholder="Enter arrival airport"
                             [(ngModel)]="flightSearch.toAirport"/>
                 </div>
 
@@ -37,7 +38,7 @@
                     <label for="departure">DEPARTURE</label>
                     <input  class="form-control" 
                             id="departure" 
-                            type="datetime-local" 
+                            type="date" 
                             name="departure" 
                             [(ngModel)]="flightSearch.departure"/>
                 </div>
@@ -46,7 +47,7 @@
                     <label for="departure">ARRIVAL</label>
                     <input  class="form-control" 
                             id="arrival" 
-                            type="datetime-local" 
+                            type="date" 
                             name="arrival" 
                             [(ngModel)]="flightSearch.arrival"/>
                 </div>
@@ -55,7 +56,7 @@
                     <label for="retdeparture">RETURN DEPARTURE</label>
                     <input  class="form-control" 
                             id="retdeparture" 
-                            type="datetime-local" 
+                            type="date" 
                             name="retdeparture" 
                             [(ngModel)]="flightSearch.returnDeparture"/>
                 </div>
@@ -64,21 +65,24 @@
                     <label for="retarrival">RETURN ARRIVAL</label>
                     <input  class="form-control" 
                             id="retarrival" 
-                            type="datetime-local" 
+                            type="date" 
                             name="retarrival" 
                             [(ngModel)]="flightSearch.returnArrival"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="passengers">PASSENGER COUNT</label>
                     <input  class="form-control" 
                             id="passengers" 
                             type="number" 
                             name="passengers" 
+                            placeholder="Enter passenger count"
                             [(ngModel)]="flightSearch.noOfPassengers"/>
                 </div>
 
-                <input type="submit" value="SEARCH" class="btn btn-primary"/> <br>
+                <div class="row">
+                  <input type="submit" value="SEARCH" class="btn btn-primary mx-auto"/> <br>
+                </div>
+                
             </form>
         </div>
     </div>
@@ -122,6 +126,7 @@
       </tbody>
     </table>
   </div>
-  <div *ngIf="failure" class="alert alert-danger mt-5" role="alert">
+  <div *ngIf="failure" class="alert alert-danger mt-5 w-25" role="alert">
     Sorry! Cannot fetch Schedule details!
   </div>
+  

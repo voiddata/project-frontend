@@ -10,7 +10,6 @@ export class DashboardComponent implements OnInit {
 
   userName: string;
 
-  flightSearchForm: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -18,15 +17,15 @@ export class DashboardComponent implements OnInit {
     this.userName = sessionStorage.getItem('userName');
   }
 
-  searchFlightForm() {
-    this.flightSearchForm = true;
-  }
+  // searchFlightForm() {
+  //   this.flightSearchForm = true;
+  // }
 
-  bookingHistory() {
-    this.router.navigate(['bookingHistory']);
-  }
+  // bookingHistory() {
+  //   this.router.navigate(['bookingHistory']);
+  // }
 
-  cancelBooking() {
-    this.router.navigate(['cancelBooking']);
-  }
+  // cancelBooking() {
+  //   this.router.navigate(['cancelBooking']);
+  // }
 }

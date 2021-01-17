@@ -11,6 +11,8 @@ export class CancelbookingComponent implements OnInit {
 
   userId: number = JSON.parse(sessionStorage.getItem('id'));
 
+  sMsg: string;
+
   issuedTickets: Array<Booking> = new Array<Booking>();
 
   constructor(private bookingService: BookingService) { }
@@ -22,7 +24,14 @@ export class CancelbookingComponent implements OnInit {
   }
 
   cancelTicket(pnr: number) {
-    
+    this.bookingService.cancelTicket(pnr).subscribe(response => {
+      console.log(response);
+      if(response.status === 'SUCCESS') {
+        this.sMsg = response.message;
+      } else if(response.status === 'FAILED') {
+        this.sMsg = response.message;
+      }
+     });
   }
 
 }

@@ -1,0 +1,28 @@
+
+    <!-- <select name="t1" [(ngModel)]="carrier">
+        <option value="Air India">Air India</option>
+        <option value="kingfisher">King</option>
+        <option value="Vistara">Vistara</option>
+    </select> -->
+    <div style="margin-top: 5rem; margin-left: 15rem;">
+        <div class="card" style="width: 18rem;">
+     
+            <div class="card-body">
+                <label>Search Flight by Name</label>
+    <input type="text" [(ngModel)]="searchQue" >  <br/>
+    <br/>
+
+    <button type="submit" (click)="filterByName()"class="btn btn-primary">Search</button> 
+    &nbsp;
+    <button type="submit" (click)="resetFilters()"class="btn btn-primary">Reset</button> <br/>
+</div>
+</div>
+</div>
+
+<div *ngFor="let flight of filteredFlights">
+    Flight No : {{ flight.flight.flightNo }} <br />
+    Flight Name : {{ flight.flight.flightName }} <br />
+    Source : {{ flight.fromAirport }} <br />
+    Destination : {{ flight.toAirport }} <br />
+    <br />
+</div>

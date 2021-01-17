@@ -29,6 +29,7 @@ export class UserflightsearchComponent implements OnInit {
     
     this.scheduleService.fetchScheduleForUser(this.flightSearch).subscribe(response => {
       this.scheduleList = response.schedule;
+      console.log(this.scheduleList);
 
       if(response.status === 'FAILED') {
         this.failure = true;
@@ -45,6 +46,6 @@ export class UserflightsearchComponent implements OnInit {
     sessionStorage.setItem('flightSearch', JSON.stringify(this.flightSearch));
     sessionStorage.setItem('flight', JSON.stringify(flight));
     sessionStorage.setItem('schedule', JSON.stringify(schedule));
-    this.router.navigate(['seatSelection']);
+    this.router.navigate(['userDashboard/seatSelection']);
   }
 }

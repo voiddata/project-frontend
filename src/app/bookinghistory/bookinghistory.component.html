@@ -1,11 +1,8 @@
-<div class="container mt-3 mx-auto w-75">
+<div class="container mt-3 mx-auto w-100">
 
     <div class="row">
         <div class="col">
             PNR
-        </div>
-        <div class="col">
-            DATE OF BOOKING
         </div>
         <div class="col">
             PASSENGERS
@@ -34,9 +31,6 @@
     <div class="row" *ngFor="let booking of bookingHistory">
         <div class="col">
             {{ booking.pnr }}
-        </div>
-        <div class="col">
-            {{ booking.dateOfBoooking }}
         </div>
         <div class="col">
             {{ booking.passengers }}

@@ -1,22 +1,27 @@
-<div class="container h-100 w-100 pt-5">
-    <nav class="navbar navbar-expand-sm bg-dark">
-        <ul class="navbar-nav">
-          <li class="nav-item pl-3">
-            <button class="btn btn-primary nav-link" (click)="addFlightFn()">Add Flight</button>
-          </li>
-          <li class="nav-item pl-3">
-            <button class="btn btn-primary nav-link" (click)="fetchScheduleFn()" >Search for Flight</button>
-          </li>
-          <li class="nav-item pl-3">
-            <button class="btn btn-primary nav-link" (click)="addScheduleFn()">Add Schedule for Flight</button>
-          </li>
-        </ul>
+
+<div class="row w-100 h-100">
+  <div class="col col-sm-2 h-100">
+    <nav class="navbar navbar-right bg-dark h-100">
+      <ul class="navbar-nav h-100">
+        <li class="nav-item mt-2">
+          <a routerLink="addFlight"><button class="btn btn-outline-primary w-100">Add Flight</button></a>
+        </li>
+        <li class="nav-item mt-2">
+          <a routerLink="fetchSchedule"><button class="btn btn-outline-primary w-100">Search for Flight</button></a>
+        </li>
+        <li class="nav-item mt-2">
+          <a routerLink="addSchedule"><button class="btn btn-outline-primary w-100">Add Schedule for Flight</button></a>
+        </li>
+      </ul>
     </nav>
-    <p class="display-4">Hi, {{ user }}</p>
-        
-    
+  </div>
+  <div class="col col-sm-10 h-100">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
-<app-addflight *ngIf="addFlight"></app-addflight>
-<app-flightsearch *ngIf="fetchSchedule"></app-flightsearch>
-<app-addschedule *ngIf="addSchedule"></app-addschedule>
+
+
+
+
+

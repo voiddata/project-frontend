@@ -15,22 +15,38 @@ import { TicketbookingComponent } from './ticketbooking/ticketbooking.component'
 import { SelectbankaccountComponent } from './selectbankaccount/selectbankaccount.component';
 import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
 import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
+import { UserflightsearchComponent } from './userflightsearch/userflightsearch.component';
+import { AddbankaccountComponent } from './addbankaccount/addbankaccount.component';
+import { FlightFiltersComponent } from './flight-filters/flight-filters.component';
+import { SearchFlightsComponent } from './search-flights/search-flights.component';
 
 const routes: Routes = [
-  { path: 'addFlight', component: AddflightComponent },
-  { path: 'fetchSchedule', component: FlightsearchComponent },
-  { path: 'addSchedule', component: AddscheduleComponent },
-  { path: 'userDashboard', component: DashboardComponent },
+  { path: 'userDashboard', component: DashboardComponent,
+    children: [
+      { path: 'bookingHistory', component: BookinghistoryComponent },
+      { path: 'cancelBooking', component: CancelbookingComponent },
+      { path: 'userFlightSearch', component: UserflightsearchComponent },
+      { path: 'seatSelection', component: SeatselectionComponent },
+      { path: 'passengerForm', component: PassengerformComponent },
+      { path: 'ticketBooking', component: TicketbookingComponent },
+      { path: 'selectBank', component: SelectbankaccountComponent },
+      { path: 'addBankAccount', component: AddbankaccountComponent },
+      { path: 'filterByFlightName', component: FlightFiltersComponent },
+      { path: 'filterByAirport', component: SearchFlightsComponent }
+    ] },
   { path: 'userLogin', component: LoginComponent },
   { path: 'adminLogin', component: AdminloginComponent },
-  { path: 'adminDashboard', component: AdmindashboardComponent },
+  { path: 'adminDashboard', component: AdmindashboardComponent,
+    children: [
+      { path: 'addFlight', component: AddflightComponent },
+      { path: 'fetchSchedule', component: FlightsearchComponent },
+      { path: 'addSchedule', component: AddscheduleComponent }
+    ] 
+  },
   { path: 'userRegister', component: RegisterComponent },
-  { path: 'seatSelection', component: SeatselectionComponent },
-  { path: 'passengerForm', component: PassengerformComponent },
-  { path: 'ticketBooking', component: TicketbookingComponent },
-  { path: 'selectBank', component: SelectbankaccountComponent },
-  { path: 'bookingHistory', component: BookinghistoryComponent },
-  { path: 'cancelBooking', component: CancelbookingComponent }
+  { path: 'userFlightSearch', component: UserflightsearchComponent },          // for unregistered user also
+  { path: 'addBankAccount', component: AddbankaccountComponent },
+  { path: 'filterByFlightName', component: FlightFiltersComponent }
 ];
 
 @NgModule({

@@ -35,69 +35,76 @@
 </form>
 </div>-->
 
-<div *ngIf="successMsg" class="alert alert-primary mt-5" role="alert">
-    Registered!
+<div *ngIf="successMsg" class="alert alert-primary mt-5 w-25 mx-auto" role="alert">
+    <h3 class="mx-auto text-center">Registered successfully!</h3> 
 </div>
-<div *ngIf="failureMsg" class="alert alert-danger pt-5" role="alert">
-    Failed!
+<div *ngIf="failureMsg" class="alert alert-danger mt-5 w-25 mx-auto" role="alert">
+    <h3 class="mx-auto text-center">Registration failed!</h3> 
 </div>
-
-<div class="col-md-8 mx-auto mt-5 mb-5">
+<div class="col-md-8 mx-auto mt-3 mb-5">
     <form (ngSubmit)="register()">
         <div class="form-group">
-
-            <label for="username">Enter User Name</label>
+            <h3 class="text-center">USER REGISTRATION FORM</h3><br>
             <input  class="form-control" 
                     id="username" 
                     type="text" 
                     name="username" 
+                    placeholder="Enter user name"
                     [(ngModel)]="user.userName"/>
-
-            <label for="firstname">Enter First Name</label>
-            <input  class="form-control" 
-                    id="firstname" 
-                    type="text" 
-                    name="firstname" 
-                    [(ngModel)]="user.firstName"/>
-
-            <label for="lastname">Enter Last Name</label>
-            <input  class="form-control" 
-                    id="lastname" 
-                    type="text" 
-                    name="lastname" 
-                    [(ngModel)]="user.lastName"/>
-            
-            <label for="emailid">Enter Email Id</label>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input  class="form-control" 
+                        id="firstname" 
+                        type="text" 
+                        name="firstname" 
+                        placeholder="Enter first name"
+                        [(ngModel)]="user.firstName"/>
+                </div>
+                <div class="col">
+                    <input  class="form-control" 
+                        id="lastname" 
+                        type="text" 
+                        name="lastname" 
+                        placeholder="Enter last name"
+                        [(ngModel)]="user.lastName"/>
+                </div>
+            </div>
+            <br>
             <input  class="form-control" 
                     id="emailid" 
                     type="text" 
                     name="emailid" 
+                    placeholder="Enter email id"
                     [(ngModel)]="user.emailId"
                     autocomplete="current-password"/>
+            <br>
 
-            <label for="password">Enter Password</label>
             <input  class="form-control" 
                     id="password" 
                     type="password" 
-                    name="password" 
+                    name="password"
+                    placeholder="Enter password"
                     [(ngModel)]="user.password"
                     autocomplete="current-password"/>
-
+            <br>
             <label for="dob">Enter Date of Birth</label>
             <input  class="form-control" 
                     id="dob" 
                     type="date" 
                     name="dob" 
                     [(ngModel)]="user.dateOfBirth"/>
-            
-            <label for="contact">Enter Contact Number</label>
+            <br>
             <input  class="form-control" 
                     id="contact" 
                     type="number" 
                     name="contact" 
+                    placeholder="Enter contact number"
                     [(ngModel)]="user.mobileNo"/>
-            <br><br>
-            <input type="submit" value="REGISTER" class="btn btn-primary"/>
+            <br>
+            <div class="row">
+                <button type="submit" class="btn btn-primary mx-auto">REGISTER</button>
+            </div>
         </div>
     </form>
 </div>

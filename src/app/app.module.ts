@@ -21,6 +21,9 @@ import { TicketbookingComponent } from './ticketbooking/ticketbooking.component'
 import { SelectbankaccountComponent } from './selectbankaccount/selectbankaccount.component';
 import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
 import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
+import { AddbankaccountComponent } from './addbankaccount/addbankaccount.component';
+import { FlightFiltersComponent } from './flight-filters/flight-filters.component';
+import { SearchFlightsComponent } from './search-flights/search-flights.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { CancelbookingComponent } from './cancelbooking/cancelbooking.component'
     TicketbookingComponent,
     SelectbankaccountComponent,
     BookinghistoryComponent,
-    CancelbookingComponent
+    CancelbookingComponent,
+    AddbankaccountComponent,
+    FlightFiltersComponent,
+    SearchFlightsComponent
   ],
 
   imports: [
