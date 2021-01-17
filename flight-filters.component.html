@@ -1,0 +1,18 @@
+Filters: <br />
+    <!-- <select name="t1" [(ngModel)]="carrier">
+        <option value="Air India">Air India</option>
+        <option value="kingfisher">King</option>
+        <option value="Vistara">Vistara</option>
+    </select> -->
+    <input type="text" [(ngModel)]="searchQue" >  
+    <button type="submit" (click)="filterByName()">Filter</button>
+    <button type="submit" (click)="resetFilters()">Reset all Filters</button>
+
+
+<div *ngFor="let flight of filteredFlights">
+    Flight No : {{ flight.flight.flightNo }} <br />
+    Flight Name : {{ flight.flight.flightName }} <br />
+    Source : {{ flight.fromAirport }} <br />
+    Destination : {{ flight.toAirport }} <br />
+    <br />
+</div>
