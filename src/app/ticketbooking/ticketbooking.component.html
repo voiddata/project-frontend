@@ -1,0 +1,76 @@
+<div class="col-md-8 mx-auto mt-5 mb-5">
+    <h1 class="text-center">BOOKING DETAILS</h1>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>USER NAME : </h3>
+        </div>
+        <div class="col-sm-6">
+            <h2> {{ userName }} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>FLIGHT NAME : </h3>
+        </div>
+        <div class="col-sm-6">
+            <h2> {{ schedule.flight.flightName }} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>DEPARTURE AIRPORT : </h3>
+        </div>
+        <div class="col-sm-6">
+            <h2> {{ schedule.fromAirport }} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>ARRIVAL AIRPORT : </h3>
+        </div>
+        <div class="col-sm-6">
+            <h2> {{ schedule.toAirport }} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>DEPARTURE : </h3>
+        </div>
+        <div class="col-sm-6">
+            <h2> {{ schedule.departure }} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>ARRIVAL : </h3>
+        </div>
+        <div class="col-sm-6">
+            <h2> {{ schedule.arrival }} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>PRICE AMOUNT : </h3>
+        </div>
+        <div class="col-sm-6">
+            <h2> {{ price }} </h2>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-primary" (click)="bookTicketFn()">CONFIRM BOOKING</button>
+        </div>
+    </div>
+    
+</div>

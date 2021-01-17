@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   flightSearchForm: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.userName = sessionStorage.getItem('userName');
@@ -19,5 +20,13 @@ export class DashboardComponent implements OnInit {
 
   searchFlightForm() {
     this.flightSearchForm = true;
+  }
+
+  bookingHistory() {
+    this.router.navigate(['bookingHistory']);
+  }
+
+  cancelBooking() {
+    this.router.navigate(['cancelBooking']);
   }
 }

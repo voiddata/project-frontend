@@ -17,6 +17,10 @@ import { RegisterComponent } from './register/register.component';
 import { UserflightsearchComponent } from './userflightsearch/userflightsearch.component';
 import { SeatselectionComponent } from './seatselection/seatselection.component';
 import { PassengerformComponent } from './passengerform/passengerform.component';
+import { TicketbookingComponent } from './ticketbooking/ticketbooking.component';
+import { SelectbankaccountComponent } from './selectbankaccount/selectbankaccount.component';
+import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
+import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { PassengerformComponent } from './passengerform/passengerform.component'
     RegisterComponent,
     UserflightsearchComponent,
     SeatselectionComponent,
-    PassengerformComponent
+    PassengerformComponent,
+    TicketbookingComponent,
+    SelectbankaccountComponent,
+    BookinghistoryComponent,
+    CancelbookingComponent
   ],
 
   imports: [

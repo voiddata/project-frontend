@@ -11,6 +11,10 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { RegisterComponent } from './register/register.component';
 import { SeatselectionComponent } from './seatselection/seatselection.component';
 import { PassengerformComponent } from './passengerform/passengerform.component';
+import { TicketbookingComponent } from './ticketbooking/ticketbooking.component';
+import { SelectbankaccountComponent } from './selectbankaccount/selectbankaccount.component';
+import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
+import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
 
 const routes: Routes = [
   { path: 'addFlight', component: AddflightComponent },
@@ -22,7 +26,11 @@ const routes: Routes = [
   { path: 'adminDashboard', component: AdmindashboardComponent },
   { path: 'userRegister', component: RegisterComponent },
   { path: 'seatSelection', component: SeatselectionComponent },
-  { path: 'passengerForm', component: PassengerformComponent }
+  { path: 'passengerForm', component: PassengerformComponent },
+  { path: 'ticketBooking', component: TicketbookingComponent },
+  { path: 'selectBank', component: SelectbankaccountComponent },
+  { path: 'bookingHistory', component: BookinghistoryComponent },
+  { path: 'cancelBooking', component: CancelbookingComponent }
 ];
 
 @NgModule({

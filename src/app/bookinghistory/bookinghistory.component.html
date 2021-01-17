@@ -1,0 +1,63 @@
+<div class="container mt-3 mx-auto w-75">
+
+    <div class="row">
+        <div class="col">
+            PNR
+        </div>
+        <div class="col">
+            DATE OF BOOKING
+        </div>
+        <div class="col">
+            PASSENGERS
+        </div>
+        <div class="col">
+            PRICE
+        </div>
+        <div class="col">
+            DEPARTURE AIRPORT
+        </div>
+        <div class="col">
+            ARRIVAL AIRPORT
+        </div>
+        <div class="col">
+            DEPARTURE
+        </div>
+        <div class="col">
+            ARRIVAL
+        </div>
+        <div class="col">
+            FLIGHT NAME
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" *ngFor="let booking of bookingHistory">
+        <div class="col">
+            {{ booking.pnr }}
+        </div>
+        <div class="col">
+            {{ booking.dateOfBoooking }}
+        </div>
+        <div class="col">
+            {{ booking.passengers }}
+        </div>
+        <div class="col">
+            {{ booking.price }}
+        </div>
+        <div class="col">
+            {{ booking.fromAirport }}
+        </div>
+        <div class="col">
+            {{ booking.toAirport }}
+        </div>
+        <div class="col">
+            {{ booking.departure }}
+        </div>
+        <div class="col">
+            {{ booking.arrival }}
+        </div>
+        <div class="col">
+            {{ booking.flight.flightName }}
+        </div>
+    </div>
+</div>

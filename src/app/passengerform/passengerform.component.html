@@ -1,6 +1,7 @@
 <div class="col-md-8 mx-auto mt-5 mb-5">
-    <form (ngSubmit)="register()">
-        <div class="form-group" *ngFor="let passenger of passengerList">
+    <form (ngSubmit)="bookTicket()">
+        <div class="form-group" *ngFor="let passenger of passengerList; let i=index">
+            <label>SEAT NO : {{passenger.seatNo}}</label>
             <input  class="form-control" 
                     id="firstname" 
                     type="text" 
@@ -23,24 +24,24 @@
                     [(ngModel)]="passenger.age"/>
             <br>
             
-            <label for="optradio">TYPE OF PASSENGER</label>
+            <label>TYPE OF PASSENGER</label>
             <div class="form-check">
                 <label class="form-check-label">
-                <input type="radio" class="form-check-input" id="optradio" [(ngModel)]="passenger.typeOfPassenger" value="ADULT">ADULT
+                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="ADULT">ADULT
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                <input type="radio" class="form-check-input" id="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="CHILD">CHILD
+                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="CHILD">CHILD
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                <input type="radio" class="form-check-input" id="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="INFANT">INFANT
+                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="INFANT">INFANT
                 </label>
             </div>
             <br><br>
         </div>
-        <input type="submit" value="REGISTER" class="btn btn-primary"/>
+        <input type="submit" value="BOOK TICKET" class="btn btn-primary"/>
     </form>
 </div>

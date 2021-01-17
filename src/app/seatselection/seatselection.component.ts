@@ -70,14 +70,13 @@ export class SeatselectionComponent implements OnInit {
       this.selectedSeats.push(event.target.id);
       this.j++;
     } else if(event.target.checked === false && this.j > 0) {
-
       const ind = this.selectedSeats.indexOf(event.target.id);
       if (ind > -1) {
         this.selectedSeats.splice(ind, 1);
       }
-
       this.j--;
     } 
+    
     if(this.j == this.passengerCnt) {
       this.maxCnt = true;
       sessionStorage.setItem('selectedSeats', JSON.stringify(this.selectedSeats));
