@@ -1,0 +1,82 @@
+<div class="container">
+    <h3>ECONOMY SEATS</h3><br>
+    <ol style="list-style-type: none;" class="list-group-sm list-group-horizontal">
+        <div class="row" *ngFor="let chunk of eSeatChunks1">
+            <li *ngFor="let s of chunk" class="list-group-item-sm m-1" style="width: 100px; height: 50px;">
+                <input 
+                    [disabled]="bookedSeats1.indexOf(s) > -1" 
+                    (change)="checkBoxChange($event)"
+                    type="checkbox" 
+                    name="{{s}}" 
+                    id="{{s}}" 
+                    style="width: 100px; height: 50px;"/>
+                <span id="{{s}}" class="ml-3" style="position: relative; top: -54px; right: -20px;">{{ s }}</span>
+            </li>
+            <br>
+        </div>
+        
+    </ol>
+        
+
+    <h3>BUSINESS SEATS</h3><br>
+    <ol style="list-style-type: none;" class="list-group-sm list-group-horizontal">
+        <div class="row" *ngFor="let chunk of bSeatChunks1">
+            <li *ngFor="let s of chunk" class="list-group-item-sm m-1" style="width: 100px; height: 50px;">
+                <input 
+                    [disabled]="bookedSeats1.indexOf(s) > -1" 
+                    (change)="checkBoxChange($event)"
+                    type="checkbox" 
+                    name="{{s}}" 
+                    id="{{s}}" 
+                    style="width: 100px; height: 50px;"/>
+                <span id="{{s}}" class="ml-3" style="position: relative; top: -54px; right: -20px;">{{ s }}</span>
+            </li>
+            <br>
+        </div>
+        
+    </ol>
+    <br>
+    <h3>ECONOMY SEATS</h3><br>
+    <ol style="list-style-type: none;" class="list-group-sm list-group-horizontal">
+        <div class="row" *ngFor="let chunk of eSeatChunks2">
+            <li *ngFor="let s of chunk" class="list-group-item-sm m-1" style="width: 100px; height: 50px;">
+                <input 
+                    [disabled]="bookedSeats2.indexOf(s) > -1" 
+                    (change)="checkBoxChange1($event)"
+                    type="checkbox" 
+                    name="{{s}}" 
+                    id="{{s}}" 
+                    style="width: 100px; height: 50px;"/>
+                <span id="{{s}}" class="ml-3" style="position: relative; top: -54px; right: -20px;">{{ s }}</span>
+            </li>
+            <br>
+        </div>
+        
+    </ol>
+        
+
+    <h3>BUSINESS SEATS</h3><br>
+    <ol style="list-style-type: none;" class="list-group-sm list-group-horizontal">
+        <div class="row" *ngFor="let chunk of bSeatChunks2">
+            <li *ngFor="let s of chunk" class="list-group-item-sm m-1" style="width: 100px; height: 50px;">
+                <input 
+                    [disabled]="bookedSeats2.indexOf(s) > -1" 
+                    (change)="checkBoxChange1($event)"
+                    type="checkbox" 
+                    name="{{s}}" 
+                    id="{{s}}" 
+                    style="width: 100px; height: 50px;"/>
+                <span id="{{s}}" class="ml-3" style="position: relative; top: -54px; right: -20px;">{{ s }}</span>
+            </li>
+            <br>
+        </div>
+        
+    </ol>
+    <br>
+    <div class="row w-100">
+        <button class="btn btn-primary mx-auto" (click)="nextComp()">DONE WITH SEAT SELECTION</button>
+    </div>
+    
+    <br>
+    <br>
+</div>

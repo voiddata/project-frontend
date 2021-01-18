@@ -24,6 +24,10 @@ import { CancelbookingComponent } from './cancelbooking/cancelbooking.component'
 import { AddbankaccountComponent } from './addbankaccount/addbankaccount.component';
 import { FlightFiltersComponent } from './flight-filters/flight-filters.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
+import { ReturnseatselectionComponent } from './returnseatselection/returnseatselection.component';
+import { ReturnpassengerformComponent } from './returnpassengerform/returnpassengerform.component';
+import { ReturnticketbookingComponent } from './returnticketbooking/returnticketbooking.component';
+import { ReturnbankselectComponent } from './returnbankselect/returnbankselect.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { SearchFlightsComponent } from './search-flights/search-flights.componen
     CancelbookingComponent,
     AddbankaccountComponent,
     FlightFiltersComponent,
-    SearchFlightsComponent
+    SearchFlightsComponent,
+    ReturnseatselectionComponent,
+    ReturnpassengerformComponent,
+    ReturnticketbookingComponent,
+    ReturnbankselectComponent
   ],
 
   imports: [

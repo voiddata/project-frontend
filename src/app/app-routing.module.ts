@@ -19,6 +19,10 @@ import { UserflightsearchComponent } from './userflightsearch/userflightsearch.c
 import { AddbankaccountComponent } from './addbankaccount/addbankaccount.component';
 import { FlightFiltersComponent } from './flight-filters/flight-filters.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
+import { ReturnseatselectionComponent } from './returnseatselection/returnseatselection.component';
+import { ReturnpassengerformComponent } from './returnpassengerform/returnpassengerform.component';
+import { ReturnticketbookingComponent } from './returnticketbooking/returnticketbooking.component';
+import { ReturnbankselectComponent } from './returnbankselect/returnbankselect.component';
 
 const routes: Routes = [
   { path: 'userDashboard', component: DashboardComponent,
@@ -27,12 +31,16 @@ const routes: Routes = [
       { path: 'cancelBooking', component: CancelbookingComponent },
       { path: 'userFlightSearch', component: UserflightsearchComponent },
       { path: 'seatSelection', component: SeatselectionComponent },
+      { path: 'returnSeatSelection', component: ReturnseatselectionComponent },
+      { path: 'returnPassengerForm', component: ReturnpassengerformComponent },
       { path: 'passengerForm', component: PassengerformComponent },
       { path: 'ticketBooking', component: TicketbookingComponent },
       { path: 'selectBank', component: SelectbankaccountComponent },
       { path: 'addBankAccount', component: AddbankaccountComponent },
       { path: 'filterByFlightName', component: FlightFiltersComponent },
-      { path: 'filterByAirport', component: SearchFlightsComponent }
+      { path: 'filterByAirport', component: SearchFlightsComponent },
+      { path: 'returnTicketBooking', component: ReturnticketbookingComponent },
+      { path: 'returnBankSelect', component: ReturnbankselectComponent }
     ] },
   { path: 'userLogin', component: LoginComponent },
   { path: 'adminLogin', component: AdminloginComponent },

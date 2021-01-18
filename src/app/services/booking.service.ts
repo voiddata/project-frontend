@@ -5,6 +5,7 @@ import { BookTicket } from '../appdto/BookTicket';
 import { FlightFetch } from '../appdto/FlightFetch';
 import { Payment } from '../appdto/Payment';
 import { SeatFetch } from '../appdto/SeatFetch';
+import { ReturnTicket } from '../appdto/ReturnTicket';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,11 @@ export class BookingService {
   ticketBooking(bookTicket: BookTicket): Observable<any> {
     let url = "http://localhost:8080/bookTicket";
     return this.http.post(url, bookTicket);
+  }
+
+  returnTicketBooking(returnTicket: ReturnTicket): Observable<any> {
+    let url = "http://localhost:8080/bookReturnTicket";
+    return this.http.post(url, returnTicket);
   }
 
   makePayment(payment: Payment): Observable<any> {

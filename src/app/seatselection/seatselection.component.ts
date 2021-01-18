@@ -63,7 +63,7 @@ export class SeatselectionComponent implements OnInit {
     this.eSeatDivision = this.economySeats / 10;
     this.bSeatDivision = this.businessSeats / 10;
     
-    var i,j,chunk = 10,index;
+    var i,j,chunk = 8,index;
     for (i=0,j=this.economyArray.length,index=0; i<j && index < this.eSeatDivision; i+=chunk,index++) {
       this.eSeatChunks[index] = this.economyArray.slice(i,i+chunk);
     }

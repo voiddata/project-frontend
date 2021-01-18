@@ -109,7 +109,17 @@
       <tbody>
         <tr *ngFor="let schedule of scheduleList" class="table-primary">
           <th scope="row" class="bg-secondary">
-            <button class="btn btn-primary" (click)="seatSelection(schedule, schedule.flight)">{{ schedule.id }}</button>
+            <button 
+            *ngIf="flightSearch.typeOfTicket == 'ONEWAY'" 
+            class="btn btn-primary" 
+            (click)="seatSelection(schedule, schedule.flight)">{{ schedule.id }}</button>
+            <div *ngIf="flightSearch.typeOfTicket == 'RETURN'" >
+              <input
+              type="checkbox"
+              style="width: 25px; height: 25px;"
+              (click)="seatSelectionReturn(schedule, schedule.flight, $event)"/>{{ schedule.id }}
+            </div>
+            
           </th>
           <td>{{ schedule.fromAirport }}</td>
           <td>{{ schedule.toAirport }}</td>
@@ -129,4 +139,6 @@
   <div *ngIf="failure" class="alert alert-danger mt-5 w-25" role="alert">
     Sorry! Cannot fetch Schedule details!
   </div>
-  
+  <div *ngIf="flightSearch.typeOfTicket == 'RETURN' && success" >
+    <button class="btn btn-outline-primary mx-auto" (click)="goToSeatSelection()">NEXT</button>
+  </div>
