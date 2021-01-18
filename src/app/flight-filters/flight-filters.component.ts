@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Flight } from '../appmodel/flight-sir';
 import { ScheduleFetch } from '../appdto/ScheduleFetch';
 import { ScheduleService } from '../services/schedule.service';
+import { Schedule } from '../appmodel/Schedule';
+import { FlightSearch } from '../appdto/FlightSearch';
+import { Router } from '@angular/router';
 
 
 
@@ -12,43 +15,58 @@ import { ScheduleService } from '../services/schedule.service';
 })
 export class FlightFiltersComponent implements OnInit {
 
-  //carrier: string;
+  carrier: string;
 
-
-  flights: Flight[] ;
+  flightSearch: FlightSearch = new FlightSearch();
+  flights: Schedule[] ;
   filteredFlights: Flight[];
-  searchQue:any
+  searchQue:any;
 
-  constructor(public scheduleService:ScheduleService) { }
+
+  scheduleList: Schedule[];
+
+  constructor(public scheduleService:ScheduleService, private router: Router) { }
+
+  name: string;
 
   ngOnInit(
   ): void {
-    this.fetchData();
-  }
 
-  filterByName() {
-    console.log("infilter")
-    this.filteredFlights = [];
-    for(let flight of this.flights){
-      console.log(flight['flight'].flightName);
-      if(flight['flight'].flightName == this.searchQue)
-        this.filteredFlights.push(flight);
-    }
-      
-  }
-
-  resetFilters() {
-    this.filteredFlights = []
-    this.searchQue =""
-  }
-
-  fetchData(){
     let schobj = new ScheduleFetch();
     this.scheduleService.fetchScheduleList(schobj).subscribe(res => {
-      // this.flights = res.schedule;
-     this.flights = res['schedule'];
-      console.log(this.flights);
+      this.flights = res.schedule;
+     this.scheduleList = res['schedule'];
+      console.log(this.scheduleList);
 
     });
   }
+
+  filterByName(carrierName) {
+    var index = 0; var arrFlight = [];
+     if( this.flights != null &&  this.flights.length > 0 && carrierName != null ) {
+      for( index = 0 ; this.flights.length > index ; index++ ) {
+        if(this.flights[index] != undefined && this.flights[index].flight != undefined){
+          if((this.flights[index].flight.flightName).toLocaleLowerCase() == carrierName.toLocaleLowerCase()) {
+            arrFlight.push(this.flights[index]);  
+          }
+        }      
+      }
+      this.scheduleList = arrFlight;
+     }      
+  }
+  resetFilters() {
+    this.filteredFlights = [];
+    this.scheduleList = [];
+    this.searchQue =""
+  }
+
+
+  seatSelection(schedule: Schedule, flight: Flight) {
+    sessionStorage.setItem('flightSearch', JSON.stringify(this.flightSearch));
+    sessionStorage.setItem('flight', JSON.stringify(flight));
+    sessionStorage.setItem('schedule', JSON.stringify(schedule));
+    this.router.navigate(['userDashboard/seatSelection']);
+  }
+
+
 }

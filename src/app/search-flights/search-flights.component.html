@@ -1,33 +1,79 @@
 <!--<app-flight-filters></app-flight-filters>-->
-<hr />
+<!-- <hr /> -->
 
     <!-- <select name="t1" [(ngModel)]="carrier">
         <option value="Air India">Air India</option>
         <option value="kingfisher">King</option>
         <option value="Vistara">Vistara</option>
     </select> -->
-    <div style="margin-top: 5rem; margin-left: 15rem;">
-    <div class="card" style="width: 18rem;">
- 
-        <div class="card-body">
-            FromAirport <input type="text" [(ngModel)]="searchQue1" > <br/> 
-            ToAirport <input type="text" [(ngModel)]="searchQue2"><br/>
-            <br/>
-          <button type="submit" (click)="filterBySource()"class="btn btn-primary">Search</button>
 
-        </div>
-      </div>
-      </div>
+    <br>
+          <div class="row">
+            <div class="col col-sm-4">
+              FromAirport <input type="text" [(ngModel)]="searchQue1"/>
+            </div>
+            <div class="col col-sm 4">
+              ToAirport <input type="text" [(ngModel)]="searchQue2"/>
+            </div>
+        
+            <div class="col col-sm-4">
+              <button type="submit" (click)="filterBySource()"class="btn btn-primary">Search</button>
+            </div>
+            
+            
+          </div>
+             
+            
+            <br/>
+          
+
   <!-- fromAirport <input type="text" [(ngModel)]="searchQue1" >  
    toAirport <input type="text" [(ngModel)]="searchQue2"> 
     <button type="submit" (click)="filterBySource()">Search</button>-->
-    <div style="width: 18rem;">
-            <div *ngFor="let flight of filteredFlights">
+    <!-- <div style="width: 18rem;">
+            <div *ngFor="let flight of flights">
                 Flight No : {{ flight.flight.flightNo }} <br />
                 Flight Name : {{ flight.flight.flightName }} <br />
                 Source : {{ flight.fromAirport }} <br />
                 Destination : {{ flight.toAirport }} <br />
                 <br />
         </div>
-      </div>
+      </div> -->
+
+      <table class="table table-sm pt-5">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">FROM AIRPORT</th>
+            <th scope="col">TO AIRPORT</th>
+            <th scope="col">DEPARTURE</th>
+            <th scope="col">ARRIVAL</th>
+            <th scope="col">ECONOMY SEATS</th>
+            <th scope="col">BUSINESS SEATS</th>
+            <th scope="col">FLIGHT STATUS</th>
+            <th scope="col">BUSINESS CLASS PRICE</th>
+            <th scope="col">ECONOMY CLASS PRICE</th>
+            <th scope="col">FLIGHT NO</th>
+            <th scope="col">FLIGHT NAME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schedule of scheduleList" class="table-primary">
+            <th scope="row" class="bg-secondary">
+              <button class="btn btn-primary" (click)="seatSelection(schedule, schedule.flight)">{{ schedule.id }}</button>
+            </th>
+            <td>{{ schedule.fromAirport }}</td>
+            <td>{{ schedule.toAirport }}</td>
+            <td>{{ schedule.departure }}</td>
+            <td>{{ schedule.arrival }}</td>
+            <td>{{ schedule.economySeats }}</td>
+            <td>{{ schedule.bussinessSeats }}</td>
+            <td>{{ schedule.flightStatus }}</td>
+            <td>{{ schedule.bSeatPrice }}</td>
+            <td>{{ schedule.eSeatPrice }}</td>
+            <td>{{ schedule.flight.flightNo }}</td>
+            <td>{{ schedule.flight.flightName }}</td>
+          </tr>
+        </tbody>
+      </table>
 

@@ -23,6 +23,7 @@ import { ReturnseatselectionComponent } from './returnseatselection/returnseatse
 import { ReturnpassengerformComponent } from './returnpassengerform/returnpassengerform.component';
 import { ReturnticketbookingComponent } from './returnticketbooking/returnticketbooking.component';
 import { ReturnbankselectComponent } from './returnbankselect/returnbankselect.component';
+import { UnregisteredBookingComponent } from './unregistered-booking/unregistered-booking.component';
 
 const routes: Routes = [
   { path: 'userDashboard', component: DashboardComponent,
@@ -40,7 +41,8 @@ const routes: Routes = [
       { path: 'filterByFlightName', component: FlightFiltersComponent },
       { path: 'filterByAirport', component: SearchFlightsComponent },
       { path: 'returnTicketBooking', component: ReturnticketbookingComponent },
-      { path: 'returnBankSelect', component: ReturnbankselectComponent }
+      { path: 'returnBankSelect', component: ReturnbankselectComponent },
+      { path: 'unregisteredUserAccount', component: UnregisteredBookingComponent }
     ] },
   { path: 'userLogin', component: LoginComponent },
   { path: 'adminLogin', component: AdminloginComponent },

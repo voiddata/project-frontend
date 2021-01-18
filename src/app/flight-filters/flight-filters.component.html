@@ -1,9 +1,9 @@
-
-    <!-- <select name="t1" [(ngModel)]="carrier">
+<!-- 
+     <select name="t1" [(ngModel)]="carrier">
         <option value="Air India">Air India</option>
         <option value="kingfisher">King</option>
         <option value="Vistara">Vistara</option>
-    </select> -->
+    </select> 
     <div style="margin-top: 5rem; margin-left: 15rem;">
         <div class="card" style="width: 18rem;">
      
@@ -25,4 +25,59 @@
     Source : {{ flight.fromAirport }} <br />
     Destination : {{ flight.toAirport }} <br />
     <br />
-</div>
+</div> -->
+
+
+
+  
+
+<div class="pt-5">
+ 
+    <div>
+      <input type="text" name="t1" [(ngModel)]="carrier"/>
+        
+    <button type="submit" (click)="filterByName(carrier)"class="btn btn-primary mx-auto">Filter</button>
+    <button type="submit" (click)="resetFilters()" class="btn btn-primary mx-auto">Reset all Filters</button>
+    </div>
+    
+      <table class="table table-sm pt-5">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">FROM AIRPORT</th>
+            <th scope="col">TO AIRPORT</th>
+            <th scope="col">DEPARTURE</th>
+            <th scope="col">ARRIVAL</th>
+            <th scope="col">ECONOMY SEATS</th>
+            <th scope="col">BUSINESS SEATS</th>
+            <th scope="col">FLIGHT STATUS</th>
+            <th scope="col">BUSINESS CLASS PRICE</th>
+            <th scope="col">ECONOMY CLASS PRICE</th>
+            <th scope="col">FLIGHT NO</th>
+            <th scope="col">FLIGHT NAME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schedule of scheduleList" class="table-primary">
+            <th scope="row" class="bg-secondary">
+              <button class="btn btn-primary" (click)="seatSelection(schedule, schedule.flight)">{{ schedule.id }}</button>
+            </th>
+            <td>{{ schedule.fromAirport }}</td>
+            <td>{{ schedule.toAirport }}</td>
+            <td>{{ schedule.departure }}</td>
+            <td>{{ schedule.arrival }}</td>
+            <td>{{ schedule.economySeats }}</td>
+            <td>{{ schedule.bussinessSeats }}</td>
+            <td>{{ schedule.flightStatus }}</td>
+            <td>{{ schedule.bSeatPrice }}</td>
+            <td>{{ schedule.eSeatPrice }}</td>
+            <td>{{ schedule.flight.flightNo }}</td>
+            <td>{{ schedule.flight.flightName }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="failure" class="alert alert-danger mt-5 w-25" role="alert">
+      Sorry! Cannot fetch Schedule details!
+    </div>
+    

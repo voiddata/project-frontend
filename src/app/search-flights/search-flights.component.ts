@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FlightSearch } from '../appdto/FlightSearch';
 import { ScheduleFetch } from '../appdto/ScheduleFetch';
+import { Flight } from '../appmodel/Flight';
+import { Schedule } from '../appmodel/Schedule';
 import { ScheduleService } from '../services/schedule.service';
 
 
@@ -22,31 +26,43 @@ export class SearchFlightsComponent implements OnInit {
 
   //flights: searchFlight[];
   //filteredFlights: searchFlight[];
-  filteredFlights:any;
+  
   flights:any;
   searchQue1: any;
   searchQue2: any;
   public show:boolean =false;
+  scheduleList: any;
+  flightSearch: FlightSearch = new FlightSearch();
 
-  constructor(public scheduleService: ScheduleService) { }
+  constructor(public scheduleService: ScheduleService, private router: Router) { }
 
   //  constructor(private flightCachingService: FlightCachingService,
   //  public scheduleService: ScheduleService) { }
 
   ngOnInit(): void {
-    this.fetchSearchData();
+    //this.fetchSearchData();
     //   this.flightCachingService.setFlights(this.flights);
+
+    let schobj = new ScheduleFetch();
+    this.scheduleService.fetchScheduleList(schobj).subscribe(res => {
+      // this.flights = res.schedule;
+      this.flights = res['schedule'];
+      this.scheduleList = res['schedule'];
+      console.log(this.flights);
+
+    });
   }
   filterBySource() {
     console.log("infilter")
-    this.filteredFlights = [];
+    this.scheduleList = [];
     for (let flight of this.flights) {
       console.log(flight.fromAirport);
       console.log(flight.toAirport);
       if (flight.fromAirport === this.searchQue1 &&
-        flight.toAirport === this.searchQue2)
-        this.filteredFlights.push(flight);
-        
+        flight.toAirport === this.searchQue2) {
+        //this.flights.push(flight);
+        this.scheduleList.push(flight); 
+      }
     }
 
   }
@@ -60,13 +76,12 @@ export class SearchFlightsComponent implements OnInit {
   //   this.flights = this.flightCachingService.getFlights();
   // }
   //}
-  fetchSearchData() {
-    let schobj = new ScheduleFetch();
-    this.scheduleService.fetchScheduleList(schobj).subscribe(res => {
-      // this.flights = res.schedule;
-      this.flights = res['schedule'];
-      console.log(this.flights);
 
-    });
+  seatSelection(schedule: Schedule, flight: Flight) {
+    sessionStorage.setItem('flightSearch', JSON.stringify(this.flightSearch));
+    sessionStorage.setItem('flight', JSON.stringify(flight));
+    sessionStorage.setItem('schedule', JSON.stringify(schedule));
+    this.router.navigate(['userDashboard/seatSelection']);
   }
+
 }

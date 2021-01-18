@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlightSearch } from '../appdto/FlightSearch';
+import { ScheduleFetch } from '../appdto/ScheduleFetch';
 import { Flight } from '../appmodel/Flight';
 import { Schedule } from '../appmodel/Schedule';
 import { ScheduleService } from '../services/schedule.service';
@@ -15,6 +16,10 @@ export class UserflightsearchComponent implements OnInit {
 
   flightSearch: FlightSearch = new FlightSearch();
   scheduleList: Array<Schedule> = new Array<Schedule>();
+
+  flights: Schedule[] ;
+  filteredFlights: Schedule[];
+  searchQue:any;
 
   success: boolean;
   failure: boolean;
@@ -88,5 +93,6 @@ export class UserflightsearchComponent implements OnInit {
   goToSeatSelection() {
     this.router.navigate(['userDashboard/returnSeatSelection']);
   }
+
 
 }
