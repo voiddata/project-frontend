@@ -1,5 +1,5 @@
 <div class="col-md-8 mx-auto mt-5 mb-5">
-    <form (ngSubmit)="bookTicket()">
+    <form (ngSubmit)="bookTicket()" #userForm="ngForm">
         <div class="form-group" *ngFor="let passenger of passengerList; let i=index">
             <label>SEAT NO : {{passenger.seatNo}}</label>
             <input  class="form-control" 
@@ -7,41 +7,63 @@
                     type="text" 
                     placeholder="Enter First Name"
                     name="firstname" 
-                    [(ngModel)]=passenger.firstName/> <br>
+                    [(ngModel)]=passenger.firstName
+                    required
+                    #firstName="ngModel"
+                    [class.is-invalid]="firstName.invalid && firstName.touched"/> <br>
+            <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name is required</small><br>
 
             <input  class="form-control" 
                     id="lastname" 
                     type="text" 
                     placeholder="Enter Last Name"
                     name="lastname" 
-                    [(ngModel)]="passenger.lastName"/> <br>
+                    [(ngModel)]="passenger.lastName"
+                    required
+                    #lastName="ngModel"
+                    [class.is-invalid]="lastName.invalid && lastName.touched"/> <br>
+            <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name is required</small><br>
 
             <input  class="form-control" 
                     id="age" 
                     type="number" 
                     placeholder="Enter age"
                     name="age" 
-                    [(ngModel)]="passenger.age"/>
+                    [(ngModel)]="passenger.age"
+                    required
+                    #age="ngModel"
+                    [class.is-invalid]="age.invalid && age.touched"/>
+            <small class="text-danger" [class.d-none]="age.valid || age.untouched">Age is required</small><br>
             <br>
             
             <label>TYPE OF PASSENGER</label>
             <div class="form-check">
                 <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="ADULT">ADULT
+                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="ADULT"
+                required
+                #radio="ngModel"
+                [class.is-invalid]="radio.invalid && radio.touched">ADULT
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="CHILD">CHILD
+                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="CHILD"
+                required
+                #radio="ngModel"
+                [class.is-invalid]="radio.invalid && radio.touched">CHILD
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="INFANT">INFANT
+                <input type="radio" class="form-check-input" name="{{i}}" [(ngModel)]="passenger.typeOfPassenger" value="INFANT"
+                required
+                #radio="ngModel"
+                [class.is-invalid]="radio.invalid && radio.touched">INFANT
                 </label>
+                <small class="text-danger" [class.d-none]="radio.valid || radio.untouched">required</small><br>
             </div>
             <br><br>
         </div>
-        <input type="submit" value="BOOK TICKET" class="btn btn-primary"/>
+        <input type="submit" value="BOOK TICKET" class="btn btn-primary" [disabled]="userForm.form.invalid"/>
     </form>
 </div>

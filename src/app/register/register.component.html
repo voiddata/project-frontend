@@ -42,7 +42,7 @@
     <h3 class="mx-auto text-center">Registration failed!</h3> 
 </div>
 <div class="col-md-8 mx-auto mt-3 mb-5">
-    <form (ngSubmit)="register()">
+    <form (ngSubmit)="register()" #userForm="ngForm">
         <div class="form-group">
             <h3 class="text-center">USER REGISTRATION FORM</h3><br>
             <input  class="form-control" 
@@ -50,7 +50,11 @@
                     type="text" 
                     name="username" 
                     placeholder="Enter user name"
-                    [(ngModel)]="user.userName"/>
+                    [(ngModel)]="user.userName"
+                    required
+                    #name="ngModel"
+                    [class.is-invalid]="name.invalid && name.touched"/>
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">User Name is required</small><br>
             <br>
             <div class="row">
                 <div class="col">
@@ -59,7 +63,11 @@
                         type="text" 
                         name="firstname" 
                         placeholder="Enter first name"
-                        [(ngModel)]="user.firstName"/>
+                        [(ngModel)]="user.firstName"
+                        required
+                        #firstname="ngModel"
+                        [class.is-invalid]="firstname.invalid && firstname.touched"/>
+                    <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched">First Name is required</small><br>
                 </div>
                 <div class="col">
                     <input  class="form-control" 
@@ -67,7 +75,11 @@
                         type="text" 
                         name="lastname" 
                         placeholder="Enter last name"
-                        [(ngModel)]="user.lastName"/>
+                        [(ngModel)]="user.lastName"
+                        required
+                        #lastname="ngModel"
+                        [class.is-invalid]="lastname.invalid && lastname.touched"/>
+                    <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">Last Name is required</small><br>
                 </div>
             </div>
             <br>
@@ -77,7 +89,11 @@
                     name="emailid" 
                     placeholder="Enter email id"
                     [(ngModel)]="user.emailId"
-                    autocomplete="current-password"/>
+                    autocomplete="current-password"
+                    required
+                    #email="ngModel"
+                    [class.is-invalid]="email.invalid && email.touched"/>
+             <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small><br>
             <br>
 
             <input  class="form-control" 
@@ -86,24 +102,44 @@
                     name="password"
                     placeholder="Enter password"
                     [(ngModel)]="user.password"
-                    autocomplete="current-password"/>
+                    autocomplete="current-password"
+                    required
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    #password="ngModel"
+                    [class.is-invalid]="password.invalid && password.touched"/>
+            <small class="text-danger"
+                    *ngIf="(password.touched) && password.errors?.pattern">
+                    "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+            </small> 
+            <small class="text-danger"
+                    *ngIf="(password.touched) && password.errors?.required">
+                     password is required
+            </small> 
             <br>
             <label for="dob">Enter Date of Birth</label>
             <input  class="form-control" 
                     id="dob" 
                     type="date" 
                     name="dob" 
-                    [(ngModel)]="user.dateOfBirth"/>
+                    [(ngModel)]="user.dateOfBirth"
+                    required
+                    #dob="ngModel"
+                    [class.is-invalid]="dob.invalid && dob.touched"/>
+          <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">Date of Birth is required</small><br>
             <br>
             <input  class="form-control" 
                     id="contact" 
                     type="number" 
                     name="contact" 
                     placeholder="Enter contact number"
-                    [(ngModel)]="user.mobileNo"/>
+                    [(ngModel)]="user.mobileNo"
+                    required
+                    #contact="ngModel"
+                    [class.is-invalid]="contact.invalid && contact.touched"/>
+            <small class="text-danger" [class.d-none]="contact.valid || contact.untouched">Contact Number is required</small><br>
             <br>
             <div class="row">
-                <button type="submit" class="btn btn-primary mx-auto">REGISTER</button>
+                <button type="submit" class="btn btn-primary mx-auto" [disabled]="userForm.form.invalid">REGISTER</button>
             </div>
         </div>
     </form>

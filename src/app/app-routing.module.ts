@@ -42,7 +42,7 @@ const routes: Routes = [
       { path: 'filterByAirport', component: SearchFlightsComponent },
       { path: 'returnTicketBooking', component: ReturnticketbookingComponent },
       { path: 'returnBankSelect', component: ReturnbankselectComponent },
-      { path: 'unregisteredUserAccount', component: UnregisteredBookingComponent }
+     // { path: 'unregisteredUserAccount', component: UnregisteredBookingComponent }
     ] },
   { path: 'userLogin', component: LoginComponent },
   { path: 'adminLogin', component: AdminloginComponent },
@@ -56,7 +56,8 @@ const routes: Routes = [
   { path: 'userRegister', component: RegisterComponent },
   { path: 'userFlightSearch', component: UserflightsearchComponent },          // for unregistered user also
   { path: 'addBankAccount', component: AddbankaccountComponent },
-  { path: 'filterByFlightName', component: FlightFiltersComponent }
+  { path: 'filterByFlightName', component: FlightFiltersComponent },
+  { path: 'unregisteredUserAccount', component: UnregisteredBookingComponent }
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@
 <div class="container h-100 mb-4" *ngIf="hideForm">
     <div class="row w-50 mx-auto pt-5">
         <div class="col-md-12">
-            <form (ngSubmit)="fetchFlights()">
+            <form (ngSubmit)="fetchFlights()" #userForm="ngForm">
                 <div class="form-group">
                     
                     <input  class="form-control" 
@@ -10,7 +10,11 @@
                             type="text" 
                             name="fromAirport" 
                             placeholder="Enter departure airport"
-                            [(ngModel)]="flightSearch.fromAirport"/>
+                            [(ngModel)]="flightSearch.fromAirport"
+                            required
+                            #fromAirport="ngModel"
+                            [class.is-invalid]="fromAirport.invalid && fromAirport.touched"/>
+                    <small class="text-danger" [class.d-none]="fromAirport.valid || fromAirport.untouched">required</small><br>
                 </div>
                 
                 <div class="form-group">
@@ -19,20 +23,32 @@
                             type="text" 
                             name="toAirport" 
                             placeholder="Enter arrival airport"
-                            [(ngModel)]="flightSearch.toAirport"/>
+                            [(ngModel)]="flightSearch.toAirport"
+                            required
+                            #toAirport="ngModel"
+                            [class.is-invalid]="toAirport.invalid && toAirport.touched"/>
+                    <small class="text-danger" [class.d-none]="toAirport.valid || toAirport.untouched">required</small><br>
                 </div>
 
                 <label>TYPE OF TICKET</label> <br/>
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="ONEWAY">ONEWAY
-                    </label>
+                    <input type="radio" class="form-check-input" name="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="ONEWAY"
+                    required
+                    #oneWay="ngModel"
+                    [class.is-invalid]="oneWay.invalid && oneWay.touched" >ONEWAY
+                  </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="RETURN">RETURN
+                    <input type="radio" class="form-check-input" name="optradio" [(ngModel)]="flightSearch.typeOfTicket" value="RETURN"
+                    required
+                    #twoWay="ngModel"
+                    [class.is-invalid]="twoWay.invalid && twoWay.touched">RETURN
                     </label>
+                    <small class="text-danger" [class.d-none]="twoWay.valid || twoWay.untouched">required</small><br>
                 </div>
+                
 
                 <div class="form-group">
                     <label for="departure">DEPARTURE</label>
@@ -40,7 +56,11 @@
                             id="departure" 
                             type="date" 
                             name="departure" 
-                            [(ngModel)]="flightSearch.departure"/>
+                            [(ngModel)]="flightSearch.departure"
+                            required
+                            #departure="ngModel"
+                            [class.is-invalid]="departure.invalid && departure.touched"/>
+                    <small class="text-danger" [class.d-none]="departure.valid || departure.untouched">required</small><br>
                 </div>
 
                 <div class="form-group">
@@ -49,7 +69,11 @@
                             id="arrival" 
                             type="date" 
                             name="arrival" 
-                            [(ngModel)]="flightSearch.arrival"/>
+                            [(ngModel)]="flightSearch.arrival"
+                            required
+                            #arrival="ngModel"
+                            [class.is-invalid]="arrival.invalid && arrival.touched"/>
+                    <small class="text-danger" [class.d-none]="arrival.valid || arrival.untouched">required</small><br>
                 </div>
 
                 <div class="form-group" *ngIf="flightSearch.typeOfTicket === 'RETURN'">
@@ -58,7 +82,11 @@
                             id="retdeparture" 
                             type="date" 
                             name="retdeparture" 
-                            [(ngModel)]="flightSearch.returnDeparture"/>
+                            [(ngModel)]="flightSearch.returnDeparture"
+                            required
+                            #returnDeparture="ngModel"
+                            [class.is-invalid]="returnDeparture.invalid && returnDeparture.touched"/>
+                    <small class="text-danger" [class.d-none]="returnDeparture.valid || returnDeparture.untouched">required</small><br>
                 </div>
 
                 <div class="form-group" *ngIf="flightSearch.typeOfTicket === 'RETURN'">
@@ -67,7 +95,11 @@
                             id="retarrival" 
                             type="date" 
                             name="retarrival" 
-                            [(ngModel)]="flightSearch.returnArrival"/>
+                            [(ngModel)]="flightSearch.returnArrival"
+                            required
+                            #returnArrival="ngModel"
+                            [class.is-invalid]="returnArrival.invalid && returnArrival.touched"/>
+                    <small class="text-danger" [class.d-none]="returnArrival.valid || returnArrival.untouched">required</small><br>
                 </div>
 
                 <div class="form-group">
@@ -76,11 +108,15 @@
                             type="number" 
                             name="passengers" 
                             placeholder="Enter passenger count"
-                            [(ngModel)]="flightSearch.noOfPassengers"/>
+                            [(ngModel)]="flightSearch.noOfPassengers"
+                            required
+                            #passengers="ngModel"
+                            [class.is-invalid]="passengers.invalid && passengers.touched"/>
+                    <small class="text-danger" [class.d-none]="passengers.valid || passengers.untouched">required</small><br>
                 </div>
 
                 <div class="row">
-                  <input type="submit" value="SEARCH" class="btn btn-primary mx-auto"/> <br>
+                  <input type="submit" value="SEARCH" class="btn btn-primary mx-auto" [disabled]="userForm.form.invalid"/> <br>
                 </div>
                 
             </form>

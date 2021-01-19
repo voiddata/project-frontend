@@ -10,14 +10,22 @@
     <br>
           <div class="row">
             <div class="col col-sm-4">
-              FromAirport <input type="text" [(ngModel)]="searchQue1"/>
+              FromAirport <input type="text" [(ngModel)]="searchQue1"
+                            required
+                            #fromAirport="ngModel"
+                            [class.is-invalid]="fromAirport.invalid && fromAirport.touched"/>
+                          <small class="text-danger" [class.d-none]="fromAirport.valid || fromAirport.untouched">required</small><br>
             </div>
             <div class="col col-sm 4">
-              ToAirport <input type="text" [(ngModel)]="searchQue2"/>
+              ToAirport <input type="text" [(ngModel)]="searchQue2"
+                            required
+                            #toAirport="ngModel"
+                            [class.is-invalid]="toAirport.invalid && toAirport.touched"/>
+                        <small class="text-danger" [class.d-none]="toAirport.valid || toAirport.untouched">required</small><br>
             </div>
         
             <div class="col col-sm-4">
-              <button type="submit" (click)="filterBySource()"class="btn btn-primary">Search</button>
+              <button type="submit" (click)="filterBySource()"class="btn btn-primary" [disabled]="fromAirport.invalid || toAirport.invalid">Search</button>
             </div>
             
             
