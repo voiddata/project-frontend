@@ -13,7 +13,7 @@ export class PassengerformComponent implements OnInit {
 
   passengerList: Array<Passenger> = new Array<Passenger>();
   
-
+  userName: string = sessionStorage.getItem('userName');
   flightSearch: FlightSearch = JSON.parse(sessionStorage.getItem('flightSearch'));
   seatList: Array<number> = JSON.parse(sessionStorage.getItem('selectedSeats'));
   schedule: Schedule = JSON.parse(sessionStorage.getItem('schedule'));
@@ -51,7 +51,13 @@ export class PassengerformComponent implements OnInit {
 
 
     sessionStorage.setItem('passengerList', JSON.stringify(this.passengerList));
-    this.router.navigate(['userDashboard/ticketBooking']);
+
+    if(this.userName == null) {
+      this.router.navigate(['unregisteredUserAccount']);
+    } else {
+      this.router.navigate(['userDashboard/ticketBooking']);
+    }
+    
   }
 
 }

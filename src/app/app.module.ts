@@ -28,6 +28,7 @@ import { ReturnseatselectionComponent } from './returnseatselection/returnseatse
 import { ReturnpassengerformComponent } from './returnpassengerform/returnpassengerform.component';
 import { ReturnticketbookingComponent } from './returnticketbooking/returnticketbooking.component';
 import { ReturnbankselectComponent } from './returnbankselect/returnbankselect.component';
+import { UnregisteredBookingComponent } from './unregistered-booking/unregistered-booking.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ReturnbankselectComponent } from './returnbankselect/returnbankselect.c
     ReturnseatselectionComponent,
     ReturnpassengerformComponent,
     ReturnticketbookingComponent,
-    ReturnbankselectComponent
+    ReturnbankselectComponent,
+    UnregisteredBookingComponent
   ],
 
   imports: [
