@@ -51,7 +51,7 @@
                 <div class="row">
                     <button type="submit" class="btn btn-primary mx-auto mt-3" [disabled]="userForm.form.invalid">LOGIN</button>
                 </div>
-                
+                <a (click)="forgotPassword()" href="/userLogin">Forgot Password?</a>
                 <div *ngIf="failureMsg" class="alert alert-primary pt-5" role="alert">
                     Invalid Login Details!
                 </div>

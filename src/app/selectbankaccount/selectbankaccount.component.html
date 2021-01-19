@@ -2,7 +2,7 @@
 <p>SELECT BANK ACOUNT : </p>
 
 <div class="container w-50 mx-auto">
-    <div class="row mt-3" *ngFor="let account of bankAccounts">
+    <div class="row mt-3 mx-auto" *ngFor="let account of bankAccounts">
         <div class="col col-sm-4">
             <button class="btn btn-primary" (click)="confirmPay(account.accountNo)" > {{ account.accountNo }} </button> 
         </div>
@@ -14,7 +14,8 @@
         </div>
     </div>    
 </div>
+<br><br>
 
-<div class="container" *ngIf="showTicket">
-    <button><a href="{{ payment.ticket }}" download="ticket.pdf">DOWNLOAD TICKET</a></button>
+<div class="row" *ngIf="showTicket">
+    <button class="btn btn-outline-primary mx-auto"><a href="{{ payment.ticket }}" download="ticket.pdf">DOWNLOAD TICKET</a></button>
 </div>

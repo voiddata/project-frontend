@@ -15,5 +15,4 @@ export class AdminService {
     return this.http.post(url, login); 
   }
 
-
 }

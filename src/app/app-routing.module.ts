@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'filterByFlightName', component: FlightFiltersComponent },
       { path: 'filterByAirport', component: SearchFlightsComponent },
       { path: 'returnTicketBooking', component: ReturnticketbookingComponent },
-      { path: 'returnBankSelect', component: ReturnbankselectComponent },
+      { path: 'returnBankSelect', component: ReturnbankselectComponent }
       //{ path: 'unregisteredUserAccount', component: UnregisteredBookingComponent }
     ] },
   { path: 'userLogin', component: LoginComponent },

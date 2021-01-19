@@ -20,4 +20,9 @@ export class UserService {
     let url = "http://localhost:8080/addBankAccount";
     return this.http.post(url, bankAccount);
   }
+
+  forgotPassword(userName: string): Observable<any> {
+    let url = "http://localhost:8080/forgotPassword";
+    return this.http.post(url, userName); 
+  }
 }

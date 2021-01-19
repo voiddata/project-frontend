@@ -33,5 +33,15 @@ export class LoginComponent implements OnInit {
       }
      })
     }
+
+    forgotPassword() {
+      let userName = prompt('enter your username');
+  
+      this.userService.forgotPassword(userName).subscribe(response => {
+        if(response.status === 'SUCCESS') {
+          alert('Password has been sent to your mail!');
+        }
+      });
+    }
 }
 
